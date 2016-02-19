@@ -31,7 +31,7 @@
     self.filmTitleLabel.text = filmInfo.title;
     self.filmDirectorLabel.text = filmInfo.directors[0][@"name"];
     self.filmTagLabel.text = filmInfo.genres[0];
-    self.filmRatingLabel.text = [NSString stringWithFormat:@"%.1f", ((NSNumber *)filmInfo.rating[@"average"]).doubleValue];
+    self.filmRatingLabel.text = [NSString stringWithFormat:@"%.1f", [filmInfo.rating[@"average"] doubleValue]];
 }
 
 - (void)ottFilmActorScrollView:(OTTFilmActorsScrollView *)ottFilmActorScrollView didClickItem:(id)item {

@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="144"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="144"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="R0m-Ou-tJK">
@@ -77,13 +77,13 @@
                     <exclude reference="Ez1-G4-Aog"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="2k8-hL-Wxi"/>
-                    <exclude reference="D5m-1I-Fik"/>
-                    <exclude reference="mgq-W0-mH3"/>
                     <exclude reference="HlV-KX-BZ2"/>
                     <exclude reference="hn2-0c-Cgl"/>
                     <exclude reference="okw-RJ-GN7"/>
                     <exclude reference="rFa-Cu-Wfu"/>
+                    <exclude reference="2k8-hL-Wxi"/>
+                    <exclude reference="D5m-1I-Fik"/>
+                    <exclude reference="mgq-W0-mH3"/>
                     <exclude reference="258-cr-ZPt"/>
                     <exclude reference="Gey-2c-SlJ"/>
                     <exclude reference="JF6-Ox-rwH"/>
@@ -97,13 +97,13 @@
                     <include reference="Ez1-G4-Aog"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="2k8-hL-Wxi"/>
-                    <include reference="D5m-1I-Fik"/>
-                    <include reference="mgq-W0-mH3"/>
                     <include reference="HlV-KX-BZ2"/>
                     <include reference="hn2-0c-Cgl"/>
                     <include reference="okw-RJ-GN7"/>
                     <include reference="rFa-Cu-Wfu"/>
+                    <include reference="2k8-hL-Wxi"/>
+                    <include reference="D5m-1I-Fik"/>
+                    <include reference="mgq-W0-mH3"/>
                     <include reference="258-cr-ZPt"/>
                     <include reference="Gey-2c-SlJ"/>
                     <include reference="JF6-Ox-rwH"/>

@@ -30,9 +30,6 @@
 		CC518FF71C76E03A00D5759E /* OTTScalableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FF61C76E03A00D5759E /* OTTScalableLayout.m */; };
 		CC518FFB1C76E25400D5759E /* OTTEventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FF91C76E25400D5759E /* OTTEventCollectionViewCell.m */; };
 		CC518FFC1C76E25400D5759E /* OTTEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC518FFA1C76E25400D5759E /* OTTEventCollectionViewCell.xib */; };
-		CC518FFF1C76FE4100D5759E /* OTTUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC518FFD1C76FE4100D5759E /* OTTUser.xcdatamodeld */; };
-		CC5190041C76FED700D5759E /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5190011C76FED700D5759E /* User+CoreDataProperties.m */; };
-		CC5190051C76FED700D5759E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5190031C76FED700D5759E /* User.m */; };
 		CC5BF6921C7565DC00F309DA /* OTTAreaSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5BF6911C7565DC00F309DA /* OTTAreaSelectionTableViewController.m */; };
 		CC5BF6941C7566BD00F309DA /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC5BF6931C7566BD00F309DA /* cities.plist */; };
 		CC65474F1C5C650A007E322E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC65474E1C5C650A007E322E /* Main.storyboard */; };
@@ -62,6 +59,7 @@
 		CCC930EA1C71C6760022D829 /* OTTUserSettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC930E91C71C6760022D829 /* OTTUserSettingTableViewController.m */; };
 		CCC930ED1C71C7540022D829 /* UIAlertController+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC930EC1C71C7540022D829 /* UIAlertController+Addtion.m */; };
 		CCC930F51C7232970022D829 /* UIView+Addtion.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC930F41C7232970022D829 /* UIView+Addtion.m */; };
+		CCD4B3EB1C772DEE00750973 /* OTTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD4B3EA1C772DEE00750973 /* OTTUserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,11 +108,6 @@
 		CC518FF81C76E25400D5759E /* OTTEventCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTEventCollectionViewCell.h; sourceTree = "<group>"; };
 		CC518FF91C76E25400D5759E /* OTTEventCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTEventCollectionViewCell.m; sourceTree = "<group>"; };
 		CC518FFA1C76E25400D5759E /* OTTEventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTTEventCollectionViewCell.xib; sourceTree = "<group>"; };
-		CC518FFE1C76FE4100D5759E /* OTTUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OTTUser.xcdatamodel; sourceTree = "<group>"; };
-		CC5190001C76FED700D5759E /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
-		CC5190011C76FED700D5759E /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
-		CC5190021C76FED700D5759E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		CC5190031C76FED700D5759E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		CC5BF6901C7565DC00F309DA /* OTTAreaSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTAreaSelectionTableViewController.h; sourceTree = "<group>"; };
 		CC5BF6911C7565DC00F309DA /* OTTAreaSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTAreaSelectionTableViewController.m; sourceTree = "<group>"; };
 		CC5BF6931C7566BD00F309DA /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
@@ -167,6 +160,8 @@
 		CCC930EE1C71C7E40022D829 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		CCC930F31C7232970022D829 /* UIView+Addtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Addtion.h"; sourceTree = "<group>"; };
 		CCC930F41C7232970022D829 /* UIView+Addtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Addtion.m"; sourceTree = "<group>"; };
+		CCD4B3E91C772DEE00750973 /* OTTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTUserInfo.h; sourceTree = "<group>"; };
+		CCD4B3EA1C772DEE00750973 /* OTTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTUserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -521,11 +516,8 @@
 		CCB16C811C644CCB00FFE510 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC5190001C76FED700D5759E /* User+CoreDataProperties.h */,
-				CC5190011C76FED700D5759E /* User+CoreDataProperties.m */,
-				CC5190021C76FED700D5759E /* User.h */,
-				CC5190031C76FED700D5759E /* User.m */,
-				CC518FFD1C76FE4100D5759E /* OTTUser.xcdatamodeld */,
+				CCD4B3E91C772DEE00750973 /* OTTUserInfo.h */,
+				CCD4B3EA1C772DEE00750973 /* OTTUserInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -686,7 +678,6 @@
 				CC97F3271C5BA22C008AFE9A /* AppDelegate.m in Sources */,
 				CC97F34E1C5BC367008AFE9A /* OTTLoginViewController.m in Sources */,
 				CC6547531C5C654C007E322E /* OTTMainTableViewController.m in Sources */,
-				CC518FFF1C76FE4100D5759E /* OTTUser.xcdatamodeld in Sources */,
 				CC03AD2A1C717E0E00E3D431 /* OTTFilmRank.m in Sources */,
 				CC65475F1C5C7DDF007E322E /* OTTUserTool.m in Sources */,
 				CC1CC21C1C603F32004C6298 /* OTTCustomNavigationController.m in Sources */,
@@ -698,12 +689,12 @@
 				CC518FE81C76B91600D5759E /* OTTUSBOXFilmInfo.m in Sources */,
 				CC6547651C5C81A6007E322E /* OTTGeneralTableView.m in Sources */,
 				CC6547561C5C6770007E322E /* UIBarButtonItem+Addtion.m in Sources */,
-				CC5190041C76FED700D5759E /* User+CoreDataProperties.m in Sources */,
 				CC518FF71C76E03A00D5759E /* OTTScalableLayout.m in Sources */,
 				CCC930ED1C71C7540022D829 /* UIAlertController+Addtion.m in Sources */,
 				CCB16C841C644CF300FFE510 /* OTTUserInfoTableViewController.m in Sources */,
 				CC65475C1C5C7DA0007E322E /* OTTSpecialViewController.m in Sources */,
 				CCC930F51C7232970022D829 /* UIView+Addtion.m in Sources */,
+				CCD4B3EB1C772DEE00750973 /* OTTUserInfo.m in Sources */,
 				CC1F7B5F1C745966006362C6 /* OTTPresentingFilmInfo.m in Sources */,
 				CC813B6F1C719F910004D8D4 /* OTTFilmDetailInfoTableViewHeadCell.m in Sources */,
 				CC1CC23C1C6079F4004C6298 /* OTTNetworkingTool.m in Sources */,
@@ -714,7 +705,6 @@
 				CC1A83C91C7417C7001898E2 /* OTTGeneralRegisterAndMissingView.m in Sources */,
 				CC813B721C71AA870004D8D4 /* OTTFilmDetailInfoTableViewBottomCell.m in Sources */,
 				CC65476C1C5C82EB007E322E /* OTTSpecialTableViewCell.m in Sources */,
-				CC5190051C76FED700D5759E /* User.m in Sources */,
 				CC5BF6921C7565DC00F309DA /* OTTAreaSelectionTableViewController.m in Sources */,
 				CC6547621C5C7F79007E322E /* ArrayDataSource.m in Sources */,
 				CC97F3241C5BA22C008AFE9A /* main.m in Sources */,
@@ -944,19 +934,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		CC518FFD1C76FE4100D5759E /* OTTUser.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				CC518FFE1C76FE4100D5759E /* OTTUser.xcdatamodel */,
-			);
-			currentVersion = CC518FFE1C76FE4100D5759E /* OTTUser.xcdatamodel */;
-			path = OTTUser.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CC97F3171C5BA22C008AFE9A /* Project object */;
 }
