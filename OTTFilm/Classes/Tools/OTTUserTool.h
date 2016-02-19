@@ -7,17 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-
 @interface OTTUserTool : NSObject
 
 @property (copy, nonatomic, readonly) NSString *userName;
-@property (copy, nonatomic, readonly) NSString *userPassword;
+@property (copy, nonatomic, readonly) NSString *userMail;
 
-- (void)setUserName:(NSString *)userName;
++ (instancetype)sharedOTTUserTool;
 - (void)setUserPassword:(NSString *)userPassword;
 + (BOOL)isLogin;
 
-/** Using singleton instance instead of alloc init */
-+ (instancetype)sharedOTTUserTool;
++ (BOOL)userRegisterWithUserInfo:(NSDictionary *)userInfo;
+
++ (BOOL)userLoginWithAccess:(NSDictionary *)access;
+
++ (BOOL)userLogout;
 
 @end

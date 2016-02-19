@@ -1,13 +1,13 @@
 //
-//  OTTUserInfo.m
+//  OTTScalableLayout.h
 //  OTTFilm
 //
 //  Created by 郭正豪 on 16/2/19.
 //  Copyright © 2016年 郭正豪. All rights reserved.
 //
 
-#import "OTTUserInfo.h"
+#import <UIKit/UIKit.h>
 
-@implementation OTTUserInfo
+@interface OTTScalableLayout : UICollectionViewFlowLayout
 
 @end

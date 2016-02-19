@@ -10,4 +10,7 @@
 
 @interface UIView (Addtion)
 
++ (void)notfoundViewAddedTo:(UIView *)view;
++ (void)hideNotfoundViewFrom:(UIView *)view;
+
 @end

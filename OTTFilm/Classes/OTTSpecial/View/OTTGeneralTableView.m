@@ -16,11 +16,12 @@
 @end
 @implementation OTTGeneralTableView
 static NSString *identifier = @"Special Cell";
-- (instancetype)initWithDelegate:(id<UITableViewDelegate>)delegate {
+- (instancetype)initWithDelegate:(id<UITableViewDelegate>)delegate frame:(CGRect)frame {
     if (self = [super init]) {
         self.delegate = delegate;
+        self.frame = frame;
         self.dataSource = self.arrayDataSource;
-        self.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        self.backgroundColor = [UIColor clearColor];
         self.contentSize = CGSizeMake(0, self.items.count * self.rowHeight);
     }
     return self;

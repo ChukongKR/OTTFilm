@@ -7,31 +7,23 @@
 //
 
 #import "OTTAreaSelectionTableViewController.h"
-#import "OTTNetworkingTool.h"
+#import "OTTDataTool.h"
 
 @interface OTTAreaSelectionTableViewController ()
 @property (strong, nonatomic) NSArray *allCities;
-@property (strong, nonatomic) cityChangedCompletion completion;
 @end
 
 @implementation OTTAreaSelectionTableViewController
 static NSString *identifier = @"CitySelectionCell";
-- (instancetype)initWithCompletion:(cityChangedCompletion)completion {
-    if (self = [super init]) {
-        self.completion = completion;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.allCities = [OTTNetworkingTool getAllCities];
+    self.allCities = [OTTDataTool getAllCities];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (IBAction)dismiss:(id)sender {
@@ -42,7 +34,6 @@ static NSString *identifier = @"CitySelectionCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.allCities.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
@@ -55,7 +46,9 @@ static NSString *identifier = @"CitySelectionCell";
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    self.completion(self.allCities[indexPath.row]);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OTTDidCityChangeNotification" object:nil userInfo:@{@"cityName":self.allCities[indexPath.row][@"name"]}];
+    
     [self dismiss:nil];
 }
 

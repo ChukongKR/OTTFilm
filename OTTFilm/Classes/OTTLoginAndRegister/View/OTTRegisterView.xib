@@ -64,17 +64,11 @@
                         <action selector="commitAndBack" destination="iN0-l3-epB" eventType="touchUpInside" id="iTU-O4-Er8"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKm-fA-3Ee">
-                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="phonePad" secureTextEntry="YES"/>
-                </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="8pU-hZ-p23">
                     <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  用户名" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="yhc-S4-KAo">
                     <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -99,12 +93,25 @@
                     <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="phonePad" secureTextEntry="YES"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder=" 邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RsL-b9-Hce">
+                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HKm-fA-3Ee">
+                    <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="yhc-S4-KAo" firstAttribute="top" secondItem="cMH-Im-f2Z" secondAttribute="bottom" constant="50" id="1QE-fi-lQW"/>
+                <constraint firstItem="RsL-b9-Hce" firstAttribute="leading" secondItem="2dv-hH-Dxb" secondAttribute="leading" id="2iF-P6-RFn"/>
                 <constraint firstItem="yhc-S4-KAo" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="3gy-j1-GXB">
                     <variation key="heightClass=regular-widthClass=compact" constant="-40"/>
                 </constraint>
@@ -114,49 +121,57 @@
                 <constraint firstItem="8pU-hZ-p23" firstAttribute="top" secondItem="HKm-fA-3Ee" secondAttribute="bottom" constant="20" id="KPl-5M-4eO"/>
                 <constraint firstItem="HKm-fA-3Ee" firstAttribute="width" secondItem="yhc-S4-KAo" secondAttribute="width" id="LcD-YX-14M"/>
                 <constraint firstItem="HKm-fA-3Ee" firstAttribute="height" secondItem="yhc-S4-KAo" secondAttribute="height" id="NER-Nc-982"/>
-                <constraint firstItem="tDs-kY-Xa8" firstAttribute="top" secondItem="2dv-hH-Dxb" secondAttribute="bottom" constant="50" id="Rhu-w6-kEe"/>
                 <constraint firstItem="2dv-hH-Dxb" firstAttribute="width" secondItem="8pU-hZ-p23" secondAttribute="width" id="XZB-Dv-pZQ"/>
                 <constraint firstItem="2dv-hH-Dxb" firstAttribute="height" secondItem="8pU-hZ-p23" secondAttribute="height" id="Z1d-HR-6HF"/>
+                <constraint firstItem="RsL-b9-Hce" firstAttribute="top" secondItem="2dv-hH-Dxb" secondAttribute="bottom" constant="20" id="ZnL-62-f3P"/>
                 <constraint firstItem="8pU-hZ-p23" firstAttribute="centerX" secondItem="HKm-fA-3Ee" secondAttribute="centerX" id="avg-FR-Qik"/>
                 <constraint firstItem="tDs-kY-Xa8" firstAttribute="width" secondItem="2dv-hH-Dxb" secondAttribute="width" id="c7d-DG-ylr"/>
+                <constraint firstItem="tDs-kY-Xa8" firstAttribute="top" secondItem="RsL-b9-Hce" secondAttribute="bottom" constant="50" id="cJE-dj-mAi"/>
                 <constraint firstItem="tDs-kY-Xa8" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="cvj-mY-kgM"/>
                 <constraint firstItem="tDs-kY-Xa8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ech-b2-QHq"/>
                 <constraint firstItem="HKm-fA-3Ee" firstAttribute="centerX" secondItem="yhc-S4-KAo" secondAttribute="centerX" id="oJu-98-EuX"/>
                 <constraint firstItem="2dv-hH-Dxb" firstAttribute="top" secondItem="8pU-hZ-p23" secondAttribute="bottom" constant="20" id="ojk-VX-zd9"/>
                 <constraint firstItem="8pU-hZ-p23" firstAttribute="width" secondItem="HKm-fA-3Ee" secondAttribute="width" id="qcp-WR-0PD"/>
+                <constraint firstItem="RsL-b9-Hce" firstAttribute="width" secondItem="2dv-hH-Dxb" secondAttribute="width" id="sI5-nm-otm"/>
                 <constraint firstItem="8pU-hZ-p23" firstAttribute="height" secondItem="HKm-fA-3Ee" secondAttribute="height" id="szk-kw-f8f"/>
                 <constraint firstItem="yhc-S4-KAo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uXI-Ao-NxW"/>
                 <constraint firstItem="2dv-hH-Dxb" firstAttribute="centerX" secondItem="8pU-hZ-p23" secondAttribute="centerX" id="vef-CS-m56"/>
+                <constraint firstItem="RsL-b9-Hce" firstAttribute="height" secondItem="2dv-hH-Dxb" secondAttribute="height" id="wOk-dH-8ZO"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="cMH-Im-f2Z"/>
                     <exclude reference="tDs-kY-Xa8"/>
-                    <exclude reference="HKm-fA-3Ee"/>
                     <exclude reference="8pU-hZ-p23"/>
                     <exclude reference="yhc-S4-KAo"/>
                     <exclude reference="2dv-hH-Dxb"/>
+                    <exclude reference="RsL-b9-Hce"/>
+                    <exclude reference="HKm-fA-3Ee"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="XZB-Dv-pZQ"/>
-                    <exclude reference="Z1d-HR-6HF"/>
-                    <exclude reference="ojk-VX-zd9"/>
-                    <exclude reference="vef-CS-m56"/>
-                    <exclude reference="KPl-5M-4eO"/>
-                    <exclude reference="avg-FR-Qik"/>
-                    <exclude reference="qcp-WR-0PD"/>
-                    <exclude reference="szk-kw-f8f"/>
+                    <exclude reference="5iY-J2-QiS"/>
+                    <exclude reference="BM1-fT-vQS"/>
+                    <exclude reference="1QE-fi-lQW"/>
+                    <exclude reference="3gy-j1-GXB"/>
+                    <exclude reference="uXI-Ao-NxW"/>
                     <exclude reference="7qa-i4-aJb"/>
                     <exclude reference="LcD-YX-14M"/>
                     <exclude reference="NER-Nc-982"/>
                     <exclude reference="oJu-98-EuX"/>
-                    <exclude reference="1QE-fi-lQW"/>
-                    <exclude reference="3gy-j1-GXB"/>
-                    <exclude reference="uXI-Ao-NxW"/>
-                    <exclude reference="5iY-J2-QiS"/>
-                    <exclude reference="BM1-fT-vQS"/>
-                    <exclude reference="Rhu-w6-kEe"/>
+                    <exclude reference="KPl-5M-4eO"/>
+                    <exclude reference="avg-FR-Qik"/>
+                    <exclude reference="qcp-WR-0PD"/>
+                    <exclude reference="szk-kw-f8f"/>
+                    <exclude reference="XZB-Dv-pZQ"/>
+                    <exclude reference="Z1d-HR-6HF"/>
+                    <exclude reference="ojk-VX-zd9"/>
+                    <exclude reference="vef-CS-m56"/>
+                    <exclude reference="2iF-P6-RFn"/>
+                    <exclude reference="ZnL-62-f3P"/>
+                    <exclude reference="sI5-nm-otm"/>
+                    <exclude reference="wOk-dH-8ZO"/>
                     <exclude reference="c7d-DG-ylr"/>
+                    <exclude reference="cJE-dj-mAi"/>
                     <exclude reference="cvj-mY-kgM"/>
                     <exclude reference="ech-b2-QHq"/>
                 </mask>
@@ -165,31 +180,36 @@
                 <mask key="subviews">
                     <include reference="cMH-Im-f2Z"/>
                     <include reference="tDs-kY-Xa8"/>
-                    <include reference="HKm-fA-3Ee"/>
                     <include reference="8pU-hZ-p23"/>
                     <include reference="yhc-S4-KAo"/>
                     <include reference="2dv-hH-Dxb"/>
+                    <include reference="RsL-b9-Hce"/>
+                    <include reference="HKm-fA-3Ee"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="XZB-Dv-pZQ"/>
-                    <include reference="Z1d-HR-6HF"/>
-                    <include reference="ojk-VX-zd9"/>
-                    <include reference="vef-CS-m56"/>
-                    <include reference="KPl-5M-4eO"/>
-                    <include reference="avg-FR-Qik"/>
-                    <include reference="qcp-WR-0PD"/>
-                    <include reference="szk-kw-f8f"/>
+                    <include reference="5iY-J2-QiS"/>
+                    <include reference="BM1-fT-vQS"/>
+                    <include reference="1QE-fi-lQW"/>
+                    <include reference="3gy-j1-GXB"/>
+                    <include reference="uXI-Ao-NxW"/>
                     <include reference="7qa-i4-aJb"/>
                     <include reference="LcD-YX-14M"/>
                     <include reference="NER-Nc-982"/>
                     <include reference="oJu-98-EuX"/>
-                    <include reference="1QE-fi-lQW"/>
-                    <include reference="3gy-j1-GXB"/>
-                    <include reference="uXI-Ao-NxW"/>
-                    <include reference="5iY-J2-QiS"/>
-                    <include reference="BM1-fT-vQS"/>
-                    <include reference="Rhu-w6-kEe"/>
+                    <include reference="KPl-5M-4eO"/>
+                    <include reference="avg-FR-Qik"/>
+                    <include reference="qcp-WR-0PD"/>
+                    <include reference="szk-kw-f8f"/>
+                    <include reference="XZB-Dv-pZQ"/>
+                    <include reference="Z1d-HR-6HF"/>
+                    <include reference="ojk-VX-zd9"/>
+                    <include reference="vef-CS-m56"/>
+                    <include reference="2iF-P6-RFn"/>
+                    <include reference="ZnL-62-f3P"/>
+                    <include reference="sI5-nm-otm"/>
+                    <include reference="wOk-dH-8ZO"/>
                     <include reference="c7d-DG-ylr"/>
+                    <include reference="cJE-dj-mAi"/>
                     <exclude reference="cvj-mY-kgM"/>
                     <include reference="ech-b2-QHq"/>
                 </mask>
@@ -197,6 +217,7 @@
             <connections>
                 <outlet property="accountTextField" destination="yhc-S4-KAo" id="Tsr-9k-nkc"/>
                 <outlet property="confirmPassTextField" destination="2dv-hH-Dxb" id="Xuj-j1-FfP"/>
+                <outlet property="mailTextField" destination="RsL-b9-Hce" id="JSY-Vz-zc0"/>
                 <outlet property="passTextField" destination="8pU-hZ-p23" id="oOF-N8-SvF"/>
                 <outlet property="phoneNumTextField" destination="HKm-fA-3Ee" id="iHc-IA-2Zi"/>
             </connections>

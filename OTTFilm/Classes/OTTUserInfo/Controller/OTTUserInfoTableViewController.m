@@ -21,8 +21,8 @@
     if ([OTTUserTool isLogin]) {
         self.loginButton.hidden = YES;
         self.headImageView.image = [UIImage imageNamed:@"08353"];
-        self.userNameLabel.text = @"Andy";
-        self.userNicknameLabel.text = @"123";
+        self.userNameLabel.text = [OTTUserTool sharedOTTUserTool].userName;
+        self.userNicknameLabel.text = [OTTUserTool sharedOTTUserTool].userMail;;
     }else {
         self.headImageView.image = nil;
         self.userNameLabel.text = nil;
@@ -34,7 +34,6 @@
 @end
 
 @interface OTTUserInfoTableViewController ()
-@property (weak, nonatomic) IBOutlet OTTUserInfoTableViewCell *userInfoCell;
 
 @end
 
@@ -43,11 +42,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStatusChanged:) name:@"DidLoginStatusChangeNotification" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)loginStatusChanged:(NSNotification *)notification {
+    
 }
 
 #pragma mark - UITableViewDelegate
@@ -62,6 +70,8 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         if (![OTTUserTool isLogin] && indexPath.row != 1) {
             [self performSegueWithIdentifier:@"userLogin" sender:self];
+        }else {
+            [self performSegueWithIdentifier:@"changeCity" sender:self];
         }
     }
 }

@@ -18,17 +18,17 @@
     static FMDatabase *_database = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *databasePath = [libraryPath stringByAppendingPathComponent:@"OTTFilmDatabase.db"];
+        NSString *documentPath = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject].absoluteString;
+        NSString *databasePath = [documentPath stringByAppendingPathComponent:@"OTTFilmDatabase.db"];
         
-        if (![[NSFileManager defaultManager] fileExistsAtPath:databasePath]) {
-            [[NSFileManager defaultManager] createFileAtPath:databasePath contents:nil attributes:nil];
-        }
+//        if (![[NSFileManager defaultManager] fileExistsAtPath:databasePath]) {
+//            [[NSFileManager defaultManager] createFileAtPath:databasePath contents:nil attributes:nil];
+//        }
+        
         _database = [FMDatabase databaseWithPath:databasePath];
     });
     [_database open];
     return _database;
 }
-
 
 @end

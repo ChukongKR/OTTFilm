@@ -7,12 +7,12 @@
 //
 
 #import "OTTRegisterView.h"
-#import "NSString+Addtion.h"
 @interface OTTRegisterView()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPassTextField;
+@property (weak, nonatomic) IBOutlet UITextField *mailTextField;
 
 @end
 @implementation OTTRegisterView
@@ -26,12 +26,14 @@
         && self.phoneNumTextField.text.length > 0
         && self.passTextField.text.length > 0
         && self.confirmPassTextField.text.length > 0
+        && self.mailTextField.text.length > 0
         ) {
         if ([self.passTextField.text isEqualToString:self.confirmPassTextField.text]) {
             [self commitAndBackWithRegisgerInfo:@{
                                                   @"account" : self.accountTextField.text,
                                                   @"phoneNum" : self.phoneNumTextField.text,
-                                                  @"pass" : [self.passTextField.text md5String]
+                                                  @"pass" : self.passTextField.text,
+                                                  @"mail" : self.mailTextField.text
                                                   }];
         }
     }

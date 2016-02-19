@@ -30,7 +30,7 @@
     if (filmRank) {
         
         self.filmTitleLabel.text = filmRank.name;
-        self.filmIntroLabel.text = filmRank.tboxoffice;
+        self.filmIntroLabel.text = [NSString stringWithFormat:@"%@ (万元)", filmRank.tboxoffice];
         self.filmReleaseTimeLabel.text = [NSString stringWithFormat:@"%ld", filmRank.rid];
         if (filmRank.rid < 4) {
             self.filmReleaseTimeLabel.font = [UIFont systemFontOfSize:30];
@@ -45,7 +45,7 @@
                     
                     // Cache Image
                     [[NSFileManager defaultManager] createDirectoryAtPath:OTTFILMIMAGECACHESDIRECTORY withIntermediateDirectories:YES attributes:nil error:nil];
-                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:filmInfo.cover]];
+                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:filmInfo.images[@"medium"]]];
                     [[NSFileManager defaultManager] createFileAtPath:cachePath contents:data attributes:nil];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         self.filmImageView.image = [[UIImage alloc] initWithContentsOfFile:cachePath];
@@ -75,18 +75,14 @@ static NSString *identifier = @"Main Cell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
 }
 
 - (void)loadData {
-    [OTTNetworkingTool parseJsonWithAFNetworkingURL:@"http://v.juhe.cn/boxoffice/rank?area=CN&dtype=json&key=0a18ce71305a07d9a500d0f431ccb239" completion:^(id response) {
-        if ([response isKindOfClass:[NSDictionary class]]) {
-            
-            self.filmRankArray = [OTTNetworkingTool parseArrayWithArray:response[@"result"] kind:[OTTFilmRank class]];
+    [OTTNetworkingTool getFilmRankingInfoWithcompletion:^(id response) {
+        if (response) {
+            self.filmRankArray = response;
             [self.tableView reloadData];
         }
-    } failure:^(NSError *error) {
-        
     }];
 }
 
@@ -114,12 +110,16 @@ static NSString *identifier = @"Main Cell";
 
 #pragma mark - TableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
+    return 150;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [(OTTFilmRankListTableViewCell *)cell configureCellWith:self.filmRankArray[indexPath.row]];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Navigation

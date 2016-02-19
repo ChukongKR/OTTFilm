@@ -21,17 +21,17 @@
 
 - (void)configureCellWithFilmInfo:(OTTFilmInfo *)filmInfo {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:filmInfo.cover]];
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:filmInfo.images[@"medium"]]];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.filmImageView.image = [UIImage imageWithData:data];
         });
     });
-    [self.actorScrollView configureScrollViewWithActors:filmInfo.act_s itemHeight:40 itemWidth:40];
+    [self.actorScrollView configureScrollViewWithActors:filmInfo.casts itemHeight:40 itemWidth:40];
     self.actorScrollView.ottDelegate = self;
     self.filmTitleLabel.text = filmInfo.title;
-    self.filmDirectorLabel.text = filmInfo.dir;
-    self.filmTagLabel.text = filmInfo.tag;
-    self.filmRatingLabel.text = [NSString stringWithFormat:@"%.1f", filmInfo.rating.doubleValue];
+    self.filmDirectorLabel.text = filmInfo.directors[0][@"name"];
+    self.filmTagLabel.text = filmInfo.genres[0];
+    self.filmRatingLabel.text = [NSString stringWithFormat:@"%.1f", [filmInfo.rating[@"average"] doubleValue]];
 }
 
 - (void)ottFilmActorScrollView:(OTTFilmActorsScrollView *)ottFilmActorScrollView didClickItem:(id)item {

@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void(^cityChangedCompletion)(NSString *cityName);
 
 @interface OTTAreaSelectionTableViewController : UITableViewController
-
-- (instancetype)initWithCompletion:(cityChangedCompletion)completion;
 
 @end

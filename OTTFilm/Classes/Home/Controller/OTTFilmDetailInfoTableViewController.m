@@ -12,6 +12,7 @@
 #import "OTTFilmDetailInfoTableViewHeadCell.h"
 #import "OTTFilmDetailInfoTableViewBottomCell.h"
 #import <MBProgressHUD.h>
+#import "UIView+Addtion.h"
 
 @interface OTTFilmDetailInfoTableViewController ()
 
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self loadData];
 }
 
@@ -33,13 +35,30 @@
 
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [UIView hideNotfoundViewFrom:self.view];
+}
+
 - (void)loadData {
-    [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
-    [OTTNetworkingTool queryFilmInfoWithTitle:self.filmTitle completion:^(OTTFilmInfo *filmInfo) {
-        self.filmInfo = filmInfo;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [OTTNetworkingTool queryFilmInfoWithTitle:self.filmTitle completion:^(id response) {
+        if (response) {
+            self.filmInfo = response;
+        }else {
+            [self showNotfoundInfo];
+        }
         [self.tableView reloadData];
-        [MBProgressHUD hideHUDForView:self.tableView animated:YES];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
+}
+
+- (void)showNotfoundInfo {
+    self.headCell.hidden = YES;
+    self.bottomCell.hidden = YES;
+    self.tableView.scrollEnabled = NO;
+    [UIView notfoundViewAddedTo:self.view];
 }
 
 #pragma mark - TableViewDataSource
@@ -54,8 +73,11 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (!self.filmInfo) {
+        return nil;
+    }
     if (section == 0) {
-        return self.filmTitle;
+        return self.filmInfo.original_title;
     }else {
         return @"简介";
     }

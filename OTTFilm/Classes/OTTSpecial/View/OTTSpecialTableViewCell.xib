@@ -56,23 +56,23 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <exclude reference="b37-qm-f5h"/>
-                                <include reference="wBK-Rc-d9X"/>
+                                <exclude reference="wBK-Rc-d9X"/>
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今日剩余..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOO-i7-eMY">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOO-i7-eMY">
                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vg-2n-Bla">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vg-2n-Bla">
                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb7-nB-Yt5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb7-nB-Yt5">
                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -109,6 +109,7 @@
                     <constraint firstItem="Pnf-so-6lz" firstAttribute="top" secondItem="dO3-bj-BVm" secondAttribute="top" id="oYg-1D-V8n"/>
                     <constraint firstItem="gqL-1x-xxM" firstAttribute="leading" secondItem="FoK-Fd-EW0" secondAttribute="leading" id="rOL-1e-awc"/>
                     <constraint firstItem="FoK-Fd-EW0" firstAttribute="top" secondItem="Pnf-so-6lz" secondAttribute="bottom" constant="7.5" id="tjh-G8-aCn"/>
+                    <constraint firstItem="4vg-2n-Bla" firstAttribute="top" secondItem="FoK-Fd-EW0" secondAttribute="top" id="va7-8E-gEy"/>
                     <constraint firstItem="dOO-i7-eMY" firstAttribute="leading" secondItem="dO3-bj-BVm" secondAttribute="trailing" constant="8" id="xEE-vt-SrN"/>
                     <constraint firstItem="dOO-i7-eMY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gqL-1x-xxM" secondAttribute="bottom" constant="8" id="zZt-R7-l3p"/>
                 </constraints>
@@ -133,14 +134,15 @@
                         <exclude reference="WV7-Q0-u5g"/>
                         <exclude reference="iDc-OX-ezd"/>
                         <exclude reference="rOL-1e-awc"/>
-                        <exclude reference="8QR-gy-NWc"/>
-                        <exclude reference="FlM-ny-Vad"/>
-                        <exclude reference="Rgx-Gh-zd6"/>
-                        <exclude reference="Sf1-1J-IQj"/>
                         <exclude reference="Qnu-0Q-xyj"/>
                         <exclude reference="dfL-YP-xnG"/>
                         <exclude reference="xEE-vt-SrN"/>
                         <exclude reference="zZt-R7-l3p"/>
+                        <exclude reference="8QR-gy-NWc"/>
+                        <exclude reference="FlM-ny-Vad"/>
+                        <exclude reference="Rgx-Gh-zd6"/>
+                        <exclude reference="Sf1-1J-IQj"/>
+                        <exclude reference="va7-8E-gEy"/>
                         <exclude reference="6Qj-1t-V2p"/>
                         <exclude reference="Bgh-dk-8UE"/>
                         <exclude reference="DTt-B5-csr"/>
@@ -167,14 +169,15 @@
                         <include reference="WV7-Q0-u5g"/>
                         <include reference="iDc-OX-ezd"/>
                         <include reference="rOL-1e-awc"/>
-                        <include reference="8QR-gy-NWc"/>
-                        <include reference="FlM-ny-Vad"/>
-                        <include reference="Rgx-Gh-zd6"/>
-                        <exclude reference="Sf1-1J-IQj"/>
                         <include reference="Qnu-0Q-xyj"/>
                         <include reference="dfL-YP-xnG"/>
                         <include reference="xEE-vt-SrN"/>
                         <include reference="zZt-R7-l3p"/>
+                        <include reference="8QR-gy-NWc"/>
+                        <exclude reference="FlM-ny-Vad"/>
+                        <include reference="Rgx-Gh-zd6"/>
+                        <exclude reference="Sf1-1J-IQj"/>
+                        <include reference="va7-8E-gEy"/>
                         <include reference="6Qj-1t-V2p"/>
                         <include reference="Bgh-dk-8UE"/>
                         <include reference="DTt-B5-csr"/>

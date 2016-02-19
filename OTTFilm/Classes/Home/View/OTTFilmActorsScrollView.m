@@ -13,6 +13,9 @@
 @implementation OTTFilmActorsScrollView
 
 - (void)configureScrollViewWithActors:(NSArray *)actors itemHeight:(CGFloat)height itemWidth:(CGFloat)width {
+    if (![actors isKindOfClass:[NSArray class]] || actors == nil) {
+        return;
+    }
     self.contentSize = CGSizeMake(actors.count * 60 + 20, 0);
     self.items = actors;
     
@@ -21,9 +24,9 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20 + i*(width + 20), 5, width, height)];
         imageView.layer.cornerRadius = 3;
         imageView.layer.masksToBounds = YES;
-        if ([actors[i][@"image"] isKindOfClass:[NSString class]]) {
+        if ([actors[i][@"avatars"][@"small"] isKindOfClass:[NSString class]]) {
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:actors[i][@"image"]]];
+                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:actors[i][@"avatars"][@"small"]]];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     imageView.image = [UIImage imageWithData:data];
                     [self addSubview:imageView];

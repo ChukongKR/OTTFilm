@@ -10,6 +10,7 @@
 #import "UIAlertController+Addtion.h"
 #import "OTTForgetPassView.h"
 #import "OTTRegisterView.h"
+#import "OTTUserTool.h"
 #import <SMS_SDK/SMSSDK.h>
 
 @interface OTTLoginViewController () <OTTRegisterAndMissingViewDelegate>
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *baseScrollView;
+@property (strong, nonatomic) OTTForgetPassView *forgetPassView;
+@property (strong, nonatomic) OTTRegisterView *registerView;
 @end
 
 @implementation OTTLoginViewController
@@ -57,23 +60,45 @@
 
 - (void)configureScrollView {
     // Configure left: forgetPassView
-    OTTForgetPassView *forgetPassView = [[[NSBundle mainBundle] loadNibNamed:@"OTTForgetPassView" owner:nil options:nil] firstObject];
-    forgetPassView.frame = CGRectMake(-OTT_WINDOW_WIDTH, 0, self.baseScrollView.bounds.size.width, OTT_WINDOW_HEIGHT);
-    forgetPassView.delegate = self;
-    
-    [self.baseScrollView addSubview:forgetPassView];
+    if (![self.baseScrollView.subviews containsObject:self.forgetPassView]) {
+        [self.baseScrollView addSubview:self.forgetPassView];
+    }
     // Configure right: registerView
-    OTTRegisterView *registerView = [[[NSBundle mainBundle] loadNibNamed:@"OTTRegisterView" owner:nil options:nil] firstObject];
-    registerView.frame = CGRectMake(OTT_WINDOW_WIDTH, 0, self.baseScrollView.bounds.size.width, OTT_WINDOW_HEIGHT);
-    registerView.delegate = self;
-    
-    [self.baseScrollView addSubview:registerView];
+    if (![self.baseScrollView.subviews containsObject:self.registerView]) {
+        [self.baseScrollView addSubview:self.registerView];
+    }
+}
+
+- (OTTForgetPassView *)forgetPassView {
+    if (!_forgetPassView) {
+        _forgetPassView = [[[NSBundle mainBundle] loadNibNamed:@"OTTForgetPassView" owner:nil options:nil] firstObject];
+        _forgetPassView.frame = CGRectMake(-OTT_WINDOW_WIDTH, 0, self.baseScrollView.bounds.size.width, OTT_WINDOW_HEIGHT);
+        _forgetPassView.delegate = self;
+    }
+    return _forgetPassView;
+}
+
+- (OTTRegisterView *)registerView {
+    if (!_registerView) {
+        _registerView = [[[NSBundle mainBundle] loadNibNamed:@"OTTRegisterView" owner:nil options:nil] firstObject];
+        _registerView.frame = CGRectMake(OTT_WINDOW_WIDTH, 0, self.baseScrollView.bounds.size.width, OTT_WINDOW_HEIGHT);
+        _registerView.delegate = self;
+    }
+    return _registerView;
+}
+
+- (void)refreshView:(UIView *)view {
+    [view removeFromSuperview];
+    view = nil;
+    [self configureScrollView];
 }
 
 #pragma mark - IBAction
 - (IBAction)loginAction {
     if (self.userAccountTextField.text.length > 0 && self.userPassTextField.text.length > 0) {
-        
+        if ([OTTUserTool userLoginWithAccess:@{@"account":self.userAccountTextField.text, @"pass":self.userPassTextField.text}]) {
+            [self backAndDismiss];
+        }
     }else {
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"必须输入用户名和密码" actions:@[cancelAction]];
@@ -112,7 +137,11 @@
 
 - (void)ottForgetPassView:(OTTGeneralRegisterAndMissingView *)ottForgetPassView didFinishEnterWithRegisterInfo:(NSDictionary *)info {
     if (info) {
-        [self.baseScrollView setContentOffset:CGPointZero];
+        BOOL result = [OTTUserTool userRegisterWithUserInfo:info];
+        if (result) {
+            [self.baseScrollView setContentOffset:CGPointZero];
+            [self refreshView:self.registerView];
+        }
     }
 }
 

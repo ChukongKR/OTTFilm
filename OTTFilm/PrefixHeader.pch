@@ -15,10 +15,17 @@
 
 #define OTT_WINDOW_WIDTH [UIApplication sharedApplication].keyWindow.bounds.size.width
 #define OTT_WINDOW_HEIGHT [UIApplication sharedApplication].keyWindow.bounds.size.height
+#define OTT_WINDOW_BOUNDS [UIApplication sharedApplication].keyWindow.bounds
 
 /** SMS_SDK */
 #define SMS_APPKEY @"f7505104768b"
 #define SMS_SECRET @"339da817c793dc9cf632b3b9117a6fe5"
 
+/** douban API */
+#define DOUBAN_MOVIE_SUBJECT(filmID) @"http://api.douban.com/v2/movie/subject/%@", filmID
+#define DOUBAN_CELEBRITY(celebrityID) @"http://api.douban.com/v2/movie/celebrity/%@", celebrityID
+#define DOUBAN_SEARCH(str) @"http://api.douban.com/v2/movie/search?q=%@", str
+#define DOUBAN_TOP250 @"http://api.douban.com/v2/movie/top250"
+#define DOUBAN_USBOX @"http://api.douban.com/v2/movie/us_box"
 
 #endif /* PrefixHeader_pch */
