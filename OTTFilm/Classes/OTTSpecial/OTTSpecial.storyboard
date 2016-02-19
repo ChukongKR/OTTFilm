@@ -6,11 +6,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--精选-->
+        <!--影院-->
         <scene sceneID="Pt1-cJ-HTn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0yF-ru-He1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="精选" id="y5Q-de-ags"/>
+                    <tabBarItem key="tabBarItem" title="影院" id="y5Q-de-ags"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y5O-iV-zd4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="1074" y="7.5"/>
         </scene>
-        <!--精选-->
+        <!--影院-->
         <scene sceneID="Eb9-X4-LpD">
             <objects>
                 <viewController id="JB5-Ra-miX" customClass="OTTSpecialViewController" sceneMemberID="viewController">
@@ -37,13 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未搜索到相关影讯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fve-j4-G95">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPm-6m-UTE" userLabel="ExtensionView">
+                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPm-6m-UTE" userLabel="ExtensionView">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fU-nH-AZF">
@@ -175,7 +169,7 @@
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXk-1d-gEp">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="JB5-Ra-miX" id="xwF-ZU-0wJ"/>
                                 </connections>
@@ -183,63 +177,48 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Fve-j4-G95" secondAttribute="trailing" id="AWX-Zx-bnY"/>
                             <constraint firstItem="eXk-1d-gEp" firstAttribute="top" secondItem="fPm-6m-UTE" secondAttribute="bottom" id="BLm-Df-tKt"/>
                             <constraint firstItem="BjK-4O-qpd" firstAttribute="top" secondItem="eXk-1d-gEp" secondAttribute="bottom" id="CvG-FP-OpX"/>
-                            <constraint firstItem="Fve-j4-G95" firstAttribute="top" secondItem="fPm-6m-UTE" secondAttribute="bottom" id="K7N-ce-nI4"/>
                             <constraint firstAttribute="trailing" secondItem="fPm-6m-UTE" secondAttribute="trailing" id="VD4-w8-aBS"/>
                             <constraint firstItem="eXk-1d-gEp" firstAttribute="leading" secondItem="Mtf-bu-U1P" secondAttribute="leading" id="ZBU-hA-bbi"/>
                             <constraint firstAttribute="trailing" secondItem="eXk-1d-gEp" secondAttribute="trailing" id="c8f-k2-glS"/>
                             <constraint firstItem="fPm-6m-UTE" firstAttribute="top" secondItem="z8P-pm-o4t" secondAttribute="bottom" id="dPa-uv-WoK"/>
-                            <constraint firstItem="BjK-4O-qpd" firstAttribute="top" secondItem="Fve-j4-G95" secondAttribute="bottom" id="fcJ-qc-ID3"/>
                             <constraint firstItem="fPm-6m-UTE" firstAttribute="leading" secondItem="Mtf-bu-U1P" secondAttribute="leading" id="l48-sj-R2F"/>
-                            <constraint firstItem="Fve-j4-G95" firstAttribute="leading" secondItem="Mtf-bu-U1P" secondAttribute="leading" id="rH5-Gk-sKo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="Fve-j4-G95"/>
                                 <exclude reference="fPm-6m-UTE"/>
                                 <exclude reference="eXk-1d-gEp"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="VD4-w8-aBS"/>
-                                <exclude reference="dPa-uv-WoK"/>
-                                <exclude reference="l48-sj-R2F"/>
+                                <exclude reference="CvG-FP-OpX"/>
                                 <exclude reference="BLm-Df-tKt"/>
                                 <exclude reference="ZBU-hA-bbi"/>
                                 <exclude reference="c8f-k2-glS"/>
-                                <exclude reference="AWX-Zx-bnY"/>
-                                <exclude reference="K7N-ce-nI4"/>
-                                <exclude reference="rH5-Gk-sKo"/>
-                                <exclude reference="CvG-FP-OpX"/>
-                                <exclude reference="fcJ-qc-ID3"/>
+                                <exclude reference="VD4-w8-aBS"/>
+                                <exclude reference="dPa-uv-WoK"/>
+                                <exclude reference="l48-sj-R2F"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="Fve-j4-G95"/>
                                 <include reference="fPm-6m-UTE"/>
                                 <include reference="eXk-1d-gEp"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="VD4-w8-aBS"/>
-                                <include reference="dPa-uv-WoK"/>
-                                <include reference="l48-sj-R2F"/>
+                                <include reference="CvG-FP-OpX"/>
                                 <include reference="BLm-Df-tKt"/>
                                 <include reference="ZBU-hA-bbi"/>
                                 <include reference="c8f-k2-glS"/>
-                                <include reference="AWX-Zx-bnY"/>
-                                <include reference="K7N-ce-nI4"/>
-                                <include reference="rH5-Gk-sKo"/>
-                                <include reference="CvG-FP-OpX"/>
-                                <include reference="fcJ-qc-ID3"/>
+                                <include reference="VD4-w8-aBS"/>
+                                <include reference="dPa-uv-WoK"/>
+                                <include reference="l48-sj-R2F"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="精选" id="R1X-Qy-OoU">
+                    <navigationItem key="navigationItem" title="影院" id="R1X-Qy-OoU">
                         <barButtonItem key="rightBarButtonItem" title="地区" style="done" id="Vf8-jU-beW">
                             <connections>
-                                <action selector="changeArea:" destination="JB5-Ra-miX" id="4kh-N2-r2D"/>
                                 <segue destination="PAQ-pK-Zn2" kind="presentation" id="emm-lu-AF9"/>
                             </connections>
                         </barButtonItem>

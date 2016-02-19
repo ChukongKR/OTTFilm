@@ -11,7 +11,7 @@
 
 @property (copy, nonatomic, readwrite) NSString *userName;
 @property (copy, nonatomic, readwrite) NSString *userPassword;
-// Phone number
+
 @property (assign, nonatomic) BOOL login;
 
 @end

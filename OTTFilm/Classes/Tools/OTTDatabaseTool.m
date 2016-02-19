@@ -30,5 +30,4 @@
     return _database;
 }
 
-
 @end

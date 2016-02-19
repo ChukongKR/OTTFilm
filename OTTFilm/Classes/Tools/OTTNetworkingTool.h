@@ -7,22 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-@class AFHTTPSessionManager;
-@class OTTFilmInfo;
 
 typedef void(^OTTCompletionBlock)(id response);
+typedef void(^OTTFailureBlock)(NSError *error);
 @interface OTTNetworkingTool : NSObject
 
-//+ (instancetype)sharedNetworkingTool;
++ (void)getFilmRankingInfoWithcompletion:(OTTCompletionBlock)completion;
 
-+ (void)parseJsonWithAFNetworkingURL:(NSString *)url completion:(OTTCompletionBlock)completion failure:(void (^)(NSError *error))failure;
-
-+ (NSArray *)parseArrayWithArray:(NSArray *)array kind:(Class)kind;
-
-+ (void)queryFilmInfoWithTitle:(NSString *)title completion:(void (^)(OTTFilmInfo *filmInfo))completion;
++ (void)queryFilmInfoWithTitle:(NSString *)movieTitle completion:(OTTCompletionBlock)completion;
 
 + (void)getPresentingFilmInfosWithArea:(NSString *)area completion:(OTTCompletionBlock)completion;
 
-+ (NSArray *)getAllCities;
++ (void)getSoonPresentingFilmInfosWithArea:(NSString *)area completion:(OTTCompletionBlock)completion;
+
++ (void)getUS_BOXFilmInfosWithCompletion:(OTTCompletionBlock)completion;
 
 @end

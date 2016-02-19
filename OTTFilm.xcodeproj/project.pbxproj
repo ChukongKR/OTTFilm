@@ -11,7 +11,6 @@
 		CC03AD241C71718200E3D431 /* OTTHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC03AD231C71718200E3D431 /* OTTHome.storyboard */; };
 		CC03AD271C71765800E3D431 /* OTTFilmDetailInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC03AD261C71765800E3D431 /* OTTFilmDetailInfoTableViewController.m */; };
 		CC03AD2A1C717E0E00E3D431 /* OTTFilmRank.m in Sources */ = {isa = PBXBuildFile; fileRef = CC03AD291C717E0E00E3D431 /* OTTFilmRank.m */; };
-		CC0FC4D31C7237D300C6E05F /* OTTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0FC4D21C7237D300C6E05F /* OTTUserInfo.m */; };
 		CC1A83C41C741339001898E2 /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC1A83BF1C741339001898E2 /* SMS_SDKLocalizable.strings */; };
 		CC1A83C51C741339001898E2 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1A83C11C741339001898E2 /* MOBFoundation.framework */; };
 		CC1A83C61C741339001898E2 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC1A83C21C741339001898E2 /* SMS_SDK.framework */; };
@@ -23,6 +22,17 @@
 		CC1CC21C1C603F32004C6298 /* OTTCustomNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CC21B1C603F32004C6298 /* OTTCustomNavigationController.m */; };
 		CC1CC23C1C6079F4004C6298 /* OTTNetworkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CC23B1C6079F4004C6298 /* OTTNetworkingTool.m */; };
 		CC1F7B5F1C745966006362C6 /* OTTPresentingFilmInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F7B5E1C745966006362C6 /* OTTPresentingFilmInfo.m */; };
+		CC27B2331C75A213009E37D5 /* OTTSoonPresentingFilmInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC27B2321C75A213009E37D5 /* OTTSoonPresentingFilmInfo.m */; };
+		CC518FE51C76A5BE00D5759E /* OTTDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FE41C76A5BE00D5759E /* OTTDataTool.m */; };
+		CC518FE81C76B91600D5759E /* OTTUSBOXFilmInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FE71C76B91600D5759E /* OTTUSBOXFilmInfo.m */; };
+		CC518FEF1C76DB3700D5759E /* OTTEventCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FEE1C76DB3700D5759E /* OTTEventCollectionViewController.m */; };
+		CC518FF11C76DB4200D5759E /* OTTEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC518FF01C76DB4200D5759E /* OTTEvent.storyboard */; };
+		CC518FF71C76E03A00D5759E /* OTTScalableLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FF61C76E03A00D5759E /* OTTScalableLayout.m */; };
+		CC518FFB1C76E25400D5759E /* OTTEventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FF91C76E25400D5759E /* OTTEventCollectionViewCell.m */; };
+		CC518FFC1C76E25400D5759E /* OTTEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC518FFA1C76E25400D5759E /* OTTEventCollectionViewCell.xib */; };
+		CC518FFF1C76FE4100D5759E /* OTTUser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC518FFD1C76FE4100D5759E /* OTTUser.xcdatamodeld */; };
+		CC5190041C76FED700D5759E /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5190011C76FED700D5759E /* User+CoreDataProperties.m */; };
+		CC5190051C76FED700D5759E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5190031C76FED700D5759E /* User.m */; };
 		CC5BF6921C7565DC00F309DA /* OTTAreaSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5BF6911C7565DC00F309DA /* OTTAreaSelectionTableViewController.m */; };
 		CC5BF6941C7566BD00F309DA /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC5BF6931C7566BD00F309DA /* cities.plist */; };
 		CC65474F1C5C650A007E322E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC65474E1C5C650A007E322E /* Main.storyboard */; };
@@ -63,8 +73,6 @@
 		CC03AD261C71765800E3D431 /* OTTFilmDetailInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTFilmDetailInfoTableViewController.m; sourceTree = "<group>"; };
 		CC03AD281C717E0E00E3D431 /* OTTFilmRank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTFilmRank.h; sourceTree = "<group>"; };
 		CC03AD291C717E0E00E3D431 /* OTTFilmRank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTFilmRank.m; sourceTree = "<group>"; };
-		CC0FC4D11C7237D300C6E05F /* OTTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTUserInfo.h; sourceTree = "<group>"; };
-		CC0FC4D21C7237D300C6E05F /* OTTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTUserInfo.m; sourceTree = "<group>"; };
 		CC1A83C01C741339001898E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
 		CC1A83C11C741339001898E2 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		CC1A83C21C741339001898E2 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
@@ -83,11 +91,30 @@
 		CC1CC23B1C6079F4004C6298 /* OTTNetworkingTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTNetworkingTool.m; sourceTree = "<group>"; };
 		CC1F7B5D1C745966006362C6 /* OTTPresentingFilmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTPresentingFilmInfo.h; sourceTree = "<group>"; };
 		CC1F7B5E1C745966006362C6 /* OTTPresentingFilmInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTPresentingFilmInfo.m; sourceTree = "<group>"; };
+		CC27B2311C75A213009E37D5 /* OTTSoonPresentingFilmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTSoonPresentingFilmInfo.h; sourceTree = "<group>"; };
+		CC27B2321C75A213009E37D5 /* OTTSoonPresentingFilmInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTSoonPresentingFilmInfo.m; sourceTree = "<group>"; };
 		CC2F4B0B1C740EBD0068F3EA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		CC2F4B0D1C740ECA0068F3EA /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		CC2F4B0F1C740ED30068F3EA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CC2F4B111C740EE70068F3EA /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		CC2F4B131C740EEF0068F3EA /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		CC518FE31C76A5BE00D5759E /* OTTDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTDataTool.h; sourceTree = "<group>"; };
+		CC518FE41C76A5BE00D5759E /* OTTDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTDataTool.m; sourceTree = "<group>"; };
+		CC518FE61C76B91600D5759E /* OTTUSBOXFilmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTUSBOXFilmInfo.h; sourceTree = "<group>"; };
+		CC518FE71C76B91600D5759E /* OTTUSBOXFilmInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTUSBOXFilmInfo.m; sourceTree = "<group>"; };
+		CC518FED1C76DB3700D5759E /* OTTEventCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTEventCollectionViewController.h; sourceTree = "<group>"; };
+		CC518FEE1C76DB3700D5759E /* OTTEventCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTEventCollectionViewController.m; sourceTree = "<group>"; };
+		CC518FF01C76DB4200D5759E /* OTTEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OTTEvent.storyboard; sourceTree = "<group>"; };
+		CC518FF51C76E03A00D5759E /* OTTScalableLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTScalableLayout.h; sourceTree = "<group>"; };
+		CC518FF61C76E03A00D5759E /* OTTScalableLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTScalableLayout.m; sourceTree = "<group>"; };
+		CC518FF81C76E25400D5759E /* OTTEventCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTEventCollectionViewCell.h; sourceTree = "<group>"; };
+		CC518FF91C76E25400D5759E /* OTTEventCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTEventCollectionViewCell.m; sourceTree = "<group>"; };
+		CC518FFA1C76E25400D5759E /* OTTEventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTTEventCollectionViewCell.xib; sourceTree = "<group>"; };
+		CC518FFE1C76FE4100D5759E /* OTTUser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OTTUser.xcdatamodel; sourceTree = "<group>"; };
+		CC5190001C76FED700D5759E /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		CC5190011C76FED700D5759E /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		CC5190021C76FED700D5759E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		CC5190031C76FED700D5759E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		CC5BF6901C7565DC00F309DA /* OTTAreaSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTAreaSelectionTableViewController.h; sourceTree = "<group>"; };
 		CC5BF6911C7565DC00F309DA /* OTTAreaSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTAreaSelectionTableViewController.m; sourceTree = "<group>"; };
 		CC5BF6931C7566BD00F309DA /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
@@ -226,6 +253,8 @@
 				CCB16C7E1C644BF300FFE510 /* OTTFilmInfo.m */,
 				CC03AD281C717E0E00E3D431 /* OTTFilmRank.h */,
 				CC03AD291C717E0E00E3D431 /* OTTFilmRank.m */,
+				CC518FE61C76B91600D5759E /* OTTUSBOXFilmInfo.h */,
+				CC518FE71C76B91600D5759E /* OTTUSBOXFilmInfo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,8 +264,47 @@
 			children = (
 				CC1F7B5D1C745966006362C6 /* OTTPresentingFilmInfo.h */,
 				CC1F7B5E1C745966006362C6 /* OTTPresentingFilmInfo.m */,
+				CC27B2311C75A213009E37D5 /* OTTSoonPresentingFilmInfo.h */,
+				CC27B2321C75A213009E37D5 /* OTTSoonPresentingFilmInfo.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CC518FE91C76BDCF00D5759E /* OTTEvent */ = {
+			isa = PBXGroup;
+			children = (
+				CC518FEA1C76BDCF00D5759E /* Controller */,
+				CC518FEB1C76BDCF00D5759E /* Model */,
+				CC518FEC1C76BDCF00D5759E /* View */,
+				CC518FF01C76DB4200D5759E /* OTTEvent.storyboard */,
+			);
+			path = OTTEvent;
+			sourceTree = "<group>";
+		};
+		CC518FEA1C76BDCF00D5759E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CC518FED1C76DB3700D5759E /* OTTEventCollectionViewController.h */,
+				CC518FEE1C76DB3700D5759E /* OTTEventCollectionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CC518FEB1C76BDCF00D5759E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CC518FEC1C76BDCF00D5759E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CC518FF81C76E25400D5759E /* OTTEventCollectionViewCell.h */,
+				CC518FF91C76E25400D5759E /* OTTEventCollectionViewCell.m */,
+				CC518FFA1C76E25400D5759E /* OTTEventCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CC6547501C5C652D007E322E /* Controller */ = {
@@ -331,6 +399,7 @@
 				CC1A83BD1C741325001898E2 /* Library */,
 				CC97F3421C5BA4D7008AFE9A /* Category */,
 				CC03AD1E1C71716C00E3D431 /* Home */,
+				CC518FE91C76BDCF00D5759E /* OTTEvent */,
 				CC97F3431C5BA4D7008AFE9A /* Main */,
 				CC6547571C5C7D78007E322E /* OTTSpecial */,
 				CC97F3441C5BA4D7008AFE9A /* OTTLoginAndRegister */,
@@ -404,8 +473,12 @@
 				CC6547611C5C7F79007E322E /* ArrayDataSource.m */,
 				CC1CC23A1C6079F4004C6298 /* OTTNetworkingTool.h */,
 				CC1CC23B1C6079F4004C6298 /* OTTNetworkingTool.m */,
+				CC518FE31C76A5BE00D5759E /* OTTDataTool.h */,
+				CC518FE41C76A5BE00D5759E /* OTTDataTool.m */,
 				CCB16C851C644E3700FFE510 /* OTTDatabaseTool.h */,
 				CCB16C861C644E3700FFE510 /* OTTDatabaseTool.m */,
+				CC518FF51C76E03A00D5759E /* OTTScalableLayout.h */,
+				CC518FF61C76E03A00D5759E /* OTTScalableLayout.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -448,8 +521,11 @@
 		CCB16C811C644CCB00FFE510 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CC0FC4D11C7237D300C6E05F /* OTTUserInfo.h */,
-				CC0FC4D21C7237D300C6E05F /* OTTUserInfo.m */,
+				CC5190001C76FED700D5759E /* User+CoreDataProperties.h */,
+				CC5190011C76FED700D5759E /* User+CoreDataProperties.m */,
+				CC5190021C76FED700D5759E /* User.h */,
+				CC5190031C76FED700D5759E /* User.m */,
+				CC518FFD1C76FE4100D5759E /* OTTUser.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -535,6 +611,7 @@
 				CC97F3321C5BA22C008AFE9A /* LaunchScreen.storyboard in Resources */,
 				CC65474F1C5C650A007E322E /* Main.storyboard in Resources */,
 				CC1A83D51C743D41001898E2 /* OTTSpecial.storyboard in Resources */,
+				CC518FFC1C76E25400D5759E /* OTTEventCollectionViewCell.xib in Resources */,
 				CC5BF6941C7566BD00F309DA /* cities.plist in Resources */,
 				CC97F32F1C5BA22C008AFE9A /* Assets.xcassets in Resources */,
 				CC1A83D01C741FA2001898E2 /* OTTRegisterView.xib in Resources */,
@@ -542,6 +619,7 @@
 				CC9E0DA01C6DE31600B7C76E /* OTTUserInfo.storyboard in Resources */,
 				CC65476D1C5C82EB007E322E /* OTTSpecialTableViewCell.xib in Resources */,
 				CCC1379A1C73799F001A2B91 /* OTTForgetPassView.xib in Resources */,
+				CC518FF11C76DB4200D5759E /* OTTEvent.storyboard in Resources */,
 				CC1A83C41C741339001898E2 /* SMS_SDKLocalizable.strings in Resources */,
 				CC97F3491C5BA4D7008AFE9A /* LoginAndRegister.storyboard in Resources */,
 			);
@@ -602,11 +680,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC27B2331C75A213009E37D5 /* OTTSoonPresentingFilmInfo.m in Sources */,
 				CCB16C7F1C644BF300FFE510 /* OTTFilmInfo.m in Sources */,
 				CC813B751C71B2AA0004D8D4 /* OTTFilmActorsScrollView.m in Sources */,
 				CC97F3271C5BA22C008AFE9A /* AppDelegate.m in Sources */,
 				CC97F34E1C5BC367008AFE9A /* OTTLoginViewController.m in Sources */,
 				CC6547531C5C654C007E322E /* OTTMainTableViewController.m in Sources */,
+				CC518FFF1C76FE4100D5759E /* OTTUser.xcdatamodeld in Sources */,
 				CC03AD2A1C717E0E00E3D431 /* OTTFilmRank.m in Sources */,
 				CC65475F1C5C7DDF007E322E /* OTTUserTool.m in Sources */,
 				CC1CC21C1C603F32004C6298 /* OTTCustomNavigationController.m in Sources */,
@@ -614,9 +694,12 @@
 				CC1A83CC1C741F8D001898E2 /* OTTRegisterView.m in Sources */,
 				CC03AD271C71765800E3D431 /* OTTFilmDetailInfoTableViewController.m in Sources */,
 				CC1A83D31C74229F001898E2 /* NSString+Addtion.m in Sources */,
-				CC0FC4D31C7237D300C6E05F /* OTTUserInfo.m in Sources */,
+				CC518FEF1C76DB3700D5759E /* OTTEventCollectionViewController.m in Sources */,
+				CC518FE81C76B91600D5759E /* OTTUSBOXFilmInfo.m in Sources */,
 				CC6547651C5C81A6007E322E /* OTTGeneralTableView.m in Sources */,
 				CC6547561C5C6770007E322E /* UIBarButtonItem+Addtion.m in Sources */,
+				CC5190041C76FED700D5759E /* User+CoreDataProperties.m in Sources */,
+				CC518FF71C76E03A00D5759E /* OTTScalableLayout.m in Sources */,
 				CCC930ED1C71C7540022D829 /* UIAlertController+Addtion.m in Sources */,
 				CCB16C841C644CF300FFE510 /* OTTUserInfoTableViewController.m in Sources */,
 				CC65475C1C5C7DA0007E322E /* OTTSpecialViewController.m in Sources */,
@@ -624,11 +707,14 @@
 				CC1F7B5F1C745966006362C6 /* OTTPresentingFilmInfo.m in Sources */,
 				CC813B6F1C719F910004D8D4 /* OTTFilmDetailInfoTableViewHeadCell.m in Sources */,
 				CC1CC23C1C6079F4004C6298 /* OTTNetworkingTool.m in Sources */,
+				CC518FE51C76A5BE00D5759E /* OTTDataTool.m in Sources */,
+				CC518FFB1C76E25400D5759E /* OTTEventCollectionViewCell.m in Sources */,
 				CCB16C871C644E3700FFE510 /* OTTDatabaseTool.m in Sources */,
 				CCC137981C7376DF001A2B91 /* OTTForgetPassView.m in Sources */,
 				CC1A83C91C7417C7001898E2 /* OTTGeneralRegisterAndMissingView.m in Sources */,
 				CC813B721C71AA870004D8D4 /* OTTFilmDetailInfoTableViewBottomCell.m in Sources */,
 				CC65476C1C5C82EB007E322E /* OTTSpecialTableViewCell.m in Sources */,
+				CC5190051C76FED700D5759E /* User.m in Sources */,
 				CC5BF6921C7565DC00F309DA /* OTTAreaSelectionTableViewController.m in Sources */,
 				CC6547621C5C7F79007E322E /* ArrayDataSource.m in Sources */,
 				CC97F3241C5BA22C008AFE9A /* main.m in Sources */,
@@ -858,6 +944,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CC518FFD1C76FE4100D5759E /* OTTUser.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CC518FFE1C76FE4100D5759E /* OTTUser.xcdatamodel */,
+			);
+			currentVersion = CC518FFE1C76FE4100D5759E /* OTTUser.xcdatamodel */;
+			path = OTTUser.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CC97F3171C5BA22C008AFE9A /* Project object */;
 }

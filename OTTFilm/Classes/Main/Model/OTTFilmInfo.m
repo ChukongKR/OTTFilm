@@ -10,6 +10,10 @@
 
 @implementation OTTFilmInfo
 
-
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    if ([key isEqualToString:@"id"]) {
+        self.movieId = value;
+    }
+}
 
 @end

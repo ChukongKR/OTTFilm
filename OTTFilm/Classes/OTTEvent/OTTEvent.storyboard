@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1ia-DU-JcH">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--专题-->
+        <scene sceneID="RXk-xf-3U3">
+            <objects>
+                <collectionViewController id="rRV-nz-5h7" customClass="OTTEventCollectionViewController" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="pDj-NX-bSm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewLayout key="collectionViewLayout" id="rqS-lg-ycJ" customClass="OTTScalableLayout"/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCell" id="grf-ji-x8e" customClass="OTTEventCollectionViewCell">
+                                <rect key="frame" x="0.0" y="64" width="200" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <size key="customSize" width="200" height="150"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="rRV-nz-5h7" id="PuL-Rz-DFW"/>
+                            <outlet property="delegate" destination="rRV-nz-5h7" id="uAa-0Q-Jvb"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="专题" id="YJx-LE-F4i"/>
+                    <connections>
+                        <segue destination="jLN-Nl-ElK" kind="show" identifier="showCategoryList" id="U0a-gO-6ip"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6L-jV-RuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="169.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ucF-pW-qq4">
+            <objects>
+                <viewController id="jLN-Nl-ElK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fd3-J4-L2X"/>
+                        <viewControllerLayoutGuide type="bottom" id="W7Q-Zo-TOk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YSc-55-LK4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3mG-AP-rz1">
+                        <barButtonItem key="rightBarButtonItem" title="详情" style="done" id="ked-qT-zuM">
+                            <connections>
+                                <segue destination="mTb-3J-8xY" kind="show" id="J47-Nk-TKd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KZw-RO-anV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732.5" y="169.5"/>
+        </scene>
+        <!--FilmDetail-->
+        <scene sceneID="Is2-qQ-SEP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OTTHome" referencedIdentifier="FilmDetail" id="mTb-3J-8xY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FXL-58-BBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360.25" y="195"/>
+        </scene>
+        <!--Event-->
+        <scene sceneID="bJi-Ni-Zwf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1ia-DU-JcH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Event" id="tIi-bA-CBw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="L9e-Zf-6WR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rRV-nz-5h7" kind="relationship" relationship="rootViewController" id="iCs-Px-nDf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qio-9c-j6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="381" y="169.5"/>
+        </scene>
+    </scenes>
+</document>

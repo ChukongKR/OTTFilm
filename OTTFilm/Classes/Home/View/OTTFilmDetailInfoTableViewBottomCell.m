@@ -14,7 +14,7 @@
 @implementation OTTFilmDetailInfoTableViewBottomCell
 
 - (void)configureCellWithFilmInfo:(OTTFilmInfo *)filmInfo {
-    self.filmIntroLabel.text = filmInfo.desc;
+    self.filmIntroLabel.text = filmInfo.summary;
 }
 
 @end

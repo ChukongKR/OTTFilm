@@ -36,7 +36,17 @@
         self.filmPresentingCount.text = filmInfo.subHead;
         self.filmActor.text = [self actorNameFrom:filmInfo.star];
     }else {
-        
+        OTTSoonPresentingFilmInfo *filmInfo = item;
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:filmInfo.iconaddress]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.filmImage.image = [UIImage imageWithData:data];
+            });
+        });
+        self.filmTitle.text = filmInfo.tvTitle;
+        self.filmIntro.text = filmInfo.story[@"data"][@"storyBrief"];
+        self.filmActor.text = [self actorNameFrom:filmInfo.star];
+        self.filmPresentingCount.text = [NSString stringWithFormat:@"%@: %@", filmInfo.playDate[@"showname"], filmInfo.playDate[@"data"]];
     }
 }
 

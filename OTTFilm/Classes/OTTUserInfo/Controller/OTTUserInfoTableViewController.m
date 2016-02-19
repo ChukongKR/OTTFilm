@@ -62,6 +62,8 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         if (![OTTUserTool isLogin] && indexPath.row != 1) {
             [self performSegueWithIdentifier:@"userLogin" sender:self];
+        }else {
+            [self performSegueWithIdentifier:@"changeCity" sender:self];
         }
     }
 }

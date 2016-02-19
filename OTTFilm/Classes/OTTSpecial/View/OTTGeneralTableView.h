@@ -12,7 +12,7 @@
 
 @property (strong, readonly, nonatomic) ArrayDataSource *arrayDataSource;
 
-- (instancetype)initWithDelegate:(id<UITableViewDelegate>)delegate;
+- (instancetype)initWithDelegate:(id<UITableViewDelegate>)delegate frame:(CGRect)frame;
 
 - (void)setItems:(NSArray *)items;
 
