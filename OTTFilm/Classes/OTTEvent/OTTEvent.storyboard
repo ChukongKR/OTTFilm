@@ -9,7 +9,7 @@
         <scene sceneID="RXk-xf-3U3">
             <objects>
                 <collectionViewController id="rRV-nz-5h7" customClass="OTTEventCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="pDj-NX-bSm">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="pDj-NX-bSm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="rqS-lg-ycJ" customClass="OTTScalableLayout"/>
@@ -42,7 +42,7 @@
         <!--View Controller-->
         <scene sceneID="ucF-pW-qq4">
             <objects>
-                <viewController id="jLN-Nl-ElK" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="jLN-Nl-ElK" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fd3-J4-L2X"/>
                         <viewControllerLayoutGuide type="bottom" id="W7Q-Zo-TOk"/>

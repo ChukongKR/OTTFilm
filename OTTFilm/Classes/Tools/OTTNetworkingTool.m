@@ -76,6 +76,22 @@ static OTTNetworkingTool *_networkingTool = nil;
     }];
 }
 
++ (void)queryAllFilmInfoWithTitle:(NSString *)movieTitle completion:(OTTCompletionBlock)completion {
+    if (!movieTitle) {
+        completion(nil);
+        return;
+    }
+    NSString *url = [NSString stringWithFormat:DOUBAN_SEARCH([movieTitle stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet letterCharacterSet]])];
+    [[[self sharedNetworkingTool] manager] GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (![responseObject[@"count"] isEqual:@0] && responseObject[@"subjects"][0][@"id"]) {
+            NSArray *results = [OTTDataTool parseArrayWithArray:responseObject[@"subjects"] kind:[OTTFilmInfo class]];
+            completion(results);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 + (void)getFilmRankingInfoWithcompletion:(OTTCompletionBlock)completion {
     NSString *url = @"http://v.juhe.cn/boxoffice/rank?area=CN&dtype=json&key=0a18ce71305a07d9a500d0f431ccb239";
     [self parseJsonWithAFNetworkingURL:url completion:^(id response) {
@@ -83,7 +99,9 @@ static OTTNetworkingTool *_networkingTool = nil;
             NSArray *filmRankArray = [OTTDataTool parseArrayWithArray:response[@"result"] kind:[OTTFilmRank class]];
             completion(filmRankArray);
         }
-    } failure:nil];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 + (void)getFilmInfosWithArea:(NSString *)area completion:(OTTCompletionBlock)completion {

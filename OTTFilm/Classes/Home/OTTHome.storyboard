@@ -168,21 +168,29 @@
         <!--搜索-->
         <scene sceneID="mHf-XX-LFt">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="nDq-B5-lYt" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="nDq-B5-lYt" customClass="OTTFilmSearchTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WSQ-kI-Ji2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="搜索" id="b38-0H-m2V">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="nDq-B5-lYt" id="TnJ-JP-hwG"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" id="Gfa-Cw-2gJ">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gfa-Cw-2gJ" id="Wdx-cn-OBI">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="icO-CM-Jsx" kind="show" id="6C1-Nh-Uiw"/>
+                                    <segue destination="icO-CM-Jsx" kind="show" identifier="SearchForDetail" id="6C1-Nh-Uiw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -192,6 +200,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="搜索" id="yrN-8q-SuK"/>
+                    <connections>
+                        <outlet property="searchBar" destination="b38-0H-m2V" id="U4C-PK-RdI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ne-pH-a3P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,11 +313,39 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjB-As-bTc">
+                                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="3tX-I0-s4s"/>
+                                                        <constraint firstAttribute="width" constant="23" id="qNa-Bi-A1e"/>
+                                                    </constraints>
+                                                    <state key="normal" image="empty_heart"/>
+                                                    <state key="selected" image="red_heart"/>
+                                                    <state key="focused" image="red_heart"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="3tX-I0-s4s"/>
+                                                            <exclude reference="qNa-Bi-A1e"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="3tX-I0-s4s"/>
+                                                            <include reference="qNa-Bi-A1e"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="clickHeartButton:" destination="icO-CM-Jsx" eventType="touchUpInside" id="DWD-jt-zgq"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="A49-G7-nTX" firstAttribute="top" secondItem="DLZ-qu-B82" secondAttribute="bottom" constant="20" id="4sE-O4-zBH"/>
                                                 <constraint firstItem="A49-G7-nTX" firstAttribute="leading" secondItem="DLZ-qu-B82" secondAttribute="leading" id="6qv-aj-uzN"/>
                                                 <constraint firstItem="YUf-Y3-twL" firstAttribute="top" secondItem="04L-wT-9yo" secondAttribute="top" id="8hr-uK-9jP"/>
+                                                <constraint firstAttribute="trailing" secondItem="CjB-As-bTc" secondAttribute="trailing" constant="8" id="99t-aL-fbp">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                                </constraint>
                                                 <constraint firstItem="ZvQ-Ss-Lyx" firstAttribute="top" secondItem="DLZ-qu-B82" secondAttribute="top" id="9Rv-Sv-Llg"/>
                                                 <constraint firstItem="DLZ-qu-B82" firstAttribute="leading" secondItem="YUf-Y3-twL" secondAttribute="leading" id="Aaw-r6-9e6"/>
                                                 <constraint firstItem="35e-pj-0Do" firstAttribute="top" secondItem="A49-G7-nTX" secondAttribute="top" id="AfX-vc-Ldt"/>
@@ -333,6 +372,7 @@
                                                 <constraint firstItem="ZvQ-Ss-Lyx" firstAttribute="leading" secondItem="DLZ-qu-B82" secondAttribute="trailing" constant="8" symbolic="YES" id="kq6-Z7-MvS">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                                 </constraint>
+                                                <constraint firstAttribute="bottom" secondItem="CjB-As-bTc" secondAttribute="bottom" constant="8" id="ld2-jp-fiV"/>
                                                 <constraint firstItem="DLZ-qu-B82" firstAttribute="top" secondItem="YUf-Y3-twL" secondAttribute="bottom" constant="8" id="uB3-zI-9y0"/>
                                                 <constraint firstItem="Ny0-2r-bj9" firstAttribute="top" secondItem="YUf-Y3-twL" secondAttribute="top" id="wi6-A1-gbl"/>
                                                 <constraint firstItem="35e-pj-0Do" firstAttribute="top" secondItem="ZvQ-Ss-Lyx" secondAttribute="bottom" constant="8" id="yGa-9T-gvz"/>
@@ -349,8 +389,11 @@
                                                     <exclude reference="80w-hr-hcQ"/>
                                                     <exclude reference="Ny0-2r-bj9"/>
                                                     <exclude reference="35e-pj-0Do"/>
+                                                    <exclude reference="CjB-As-bTc"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="99t-aL-fbp"/>
+                                                    <exclude reference="ld2-jp-fiV"/>
                                                     <exclude reference="AfX-vc-Ldt"/>
                                                     <exclude reference="SIZ-d4-tl1"/>
                                                     <exclude reference="bUJ-c8-G0F"/>
@@ -391,8 +434,11 @@
                                                     <include reference="80w-hr-hcQ"/>
                                                     <include reference="Ny0-2r-bj9"/>
                                                     <include reference="35e-pj-0Do"/>
+                                                    <include reference="CjB-As-bTc"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="99t-aL-fbp"/>
+                                                    <include reference="ld2-jp-fiV"/>
                                                     <include reference="AfX-vc-Ldt"/>
                                                     <include reference="SIZ-d4-tl1"/>
                                                     <exclude reference="bUJ-c8-G0F"/>
@@ -423,6 +469,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
                                             <outlet property="actorScrollView" destination="ZvQ-Ss-Lyx" id="p1B-72-ikb"/>
                                             <outlet property="filmDirectorLabel" destination="35e-pj-0Do" id="vrT-9q-efQ"/>
@@ -483,6 +530,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
                                             <outlet property="filmIntroLabel" destination="IjH-Q2-5rJ" id="miR-b5-5lO"/>
                                         </connections>
@@ -498,12 +546,22 @@
                     <connections>
                         <outlet property="bottomCell" destination="dny-EE-4ob" id="iV7-HN-iiQ"/>
                         <outlet property="headCell" destination="cT7-XJ-9NE" id="pYF-eS-pkn"/>
+                        <outlet property="heartButton" destination="CjB-As-bTc" id="duB-Kl-nGI"/>
                         <segue destination="u4Z-hz-eQJ" kind="show" identifier="ShowWebInfo" id="vkR-Jd-81o"/>
+                        <segue destination="aAs-Rg-i4J" kind="presentation" identifier="HomeRegister" id="2l6-lj-Veb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Hx-d8-J85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1999.5" y="-636"/>
+        </scene>
+        <!--LoginAndRegister-->
+        <scene sceneID="wIV-px-pQB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginAndRegister" id="aAs-Rg-i4J" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sAD-T4-Tu9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1981.5" y="-236.25"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="GNP-eX-C3v">
@@ -579,9 +637,11 @@
     </scenes>
     <resources>
         <image name="OTT_Home" width="30" height="30"/>
+        <image name="empty_heart" width="46" height="43"/>
         <image name="fulian" width="135" height="180"/>
+        <image name="red_heart" width="46" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cmR-53-aZU"/>
+        <segue reference="6C1-Nh-Uiw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,19 +21,6 @@
     
     for (int i = 0; i < actors.count; i++) {
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20 + i*(width + 20), 5, width, height)];
-        imageView.layer.cornerRadius = 3;
-        imageView.layer.masksToBounds = YES;
-        if ([actors[i][@"avatars"][@"small"] isKindOfClass:[NSString class]]) {
-            dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:actors[i][@"avatars"][@"small"]]];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    imageView.image = [UIImage imageWithData:data];
-                    [self addSubview:imageView];
-                });
-            });
-        }
-        
         UIButton *itemButton = [[UIButton alloc] initWithFrame:CGRectMake(i*(width + 20), 0, width, self.bounds.size.height)];
         [itemButton addTarget:self action:@selector(didClickItem:) forControlEvents:UIControlEventTouchUpInside];
         itemButton.backgroundColor = [UIColor clearColor];
@@ -46,6 +33,22 @@
         label.textColor = [UIColor darkGrayColor];
         label.textAlignment = 1;
         [self addSubview:label];
+        
+        if (actors[i][@"avatars"] == [NSNull null]) {
+            continue;
+        }
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20 + i*(width + 20), 5, width, height)];
+        imageView.layer.cornerRadius = 3;
+        imageView.layer.masksToBounds = YES;
+        if ([actors[i][@"avatars"][@"small"] isKindOfClass:[NSString class]]) {
+            dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:actors[i][@"avatars"][@"small"]]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    imageView.image = [UIImage imageWithData:data];
+                    [self addSubview:imageView];
+                });
+            });
+        }
     }
 }
 

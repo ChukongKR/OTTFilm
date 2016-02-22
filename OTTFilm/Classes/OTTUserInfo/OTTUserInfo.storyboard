@@ -240,7 +240,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="关注的电影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TmI-TM-iNV">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="喜欢的电影" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TmI-TM-iNV">
                                                     <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -268,10 +268,49 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="3tg-Jf-Ib2" kind="show" identifier="showFavoriteList" id="CmR-25-Daa"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htI-z8-1o9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6" y="311.25"/>
+        </scene>
+        <!--User Favorite Table View Controller-->
+        <scene sceneID="vcP-hQ-VtO">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="3tg-Jf-Ib2" customClass="OTTUserFavoriteTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vlg-mZ-ogv">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" id="Ez5-5D-34c">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ez5-5D-34c" id="1NL-k0-2cu">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="x0q-eM-Vjq" kind="show" identifier="showFilmDetail" id="iif-69-7of"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3tg-Jf-Ib2" id="hkm-eF-S6B"/>
+                            <outlet property="delegate" destination="3tg-Jf-Ib2" id="aGG-GP-0Ul"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7s-39-iEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="1032.75"/>
+        </scene>
+        <!--FilmDetail-->
+        <scene sceneID="jD6-70-SxB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OTTHome" referencedIdentifier="FilmDetail" id="x0q-eM-Vjq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IfT-Ib-YXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="659.25" y="1185.75"/>
         </scene>
         <!--LoginAndRegister-->
         <scene sceneID="SHO-LA-HGG">
@@ -326,7 +365,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7z9-Sw-3hm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1498.5" y="715.5"/>
+            <point key="canvasLocation" x="1570.5" y="721.5"/>
         </scene>
         <!--设置-->
         <scene sceneID="sea-Pw-BRd">
@@ -391,9 +430,14 @@
                                                     <state key="normal" title="退出登录">
                                                         <color key="titleColor" red="1" green="0.10159769239999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="logout" destination="3KC-rb-gZG" eventType="touchUpInside" id="hFX-ek-BPF"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Wlu-hp-JCq" firstAttribute="top" secondItem="gQt-2e-71V" secondAttribute="top" constant="5" id="73j-pa-3Of"/>
+                                                <constraint firstItem="Wlu-hp-JCq" firstAttribute="leading" secondItem="gQt-2e-71V" secondAttribute="leading" constant="10" id="H3I-e3-tod"/>
                                                 <constraint firstItem="Wlu-hp-JCq" firstAttribute="centerX" secondItem="gQt-2e-71V" secondAttribute="centerX" id="awK-mO-Yqr"/>
                                                 <constraint firstItem="Wlu-hp-JCq" firstAttribute="centerY" secondItem="gQt-2e-71V" secondAttribute="centerY" id="sS7-pL-YGm"/>
                                             </constraints>
@@ -402,6 +446,8 @@
                                                     <exclude reference="Wlu-hp-JCq"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="73j-pa-3Of"/>
+                                                    <exclude reference="H3I-e3-tod"/>
                                                     <exclude reference="awK-mO-Yqr"/>
                                                     <exclude reference="sS7-pL-YGm"/>
                                                 </mask>
@@ -411,6 +457,8 @@
                                                     <include reference="Wlu-hp-JCq"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="73j-pa-3Of"/>
+                                                    <include reference="H3I-e3-tod"/>
                                                     <include reference="awK-mO-Yqr"/>
                                                     <include reference="sS7-pL-YGm"/>
                                                 </mask>
@@ -466,7 +514,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EzW-ZM-Nd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796.5" y="715.5"/>
+            <point key="canvasLocation" x="868.5" y="721.5"/>
         </scene>
     </scenes>
     <resources>

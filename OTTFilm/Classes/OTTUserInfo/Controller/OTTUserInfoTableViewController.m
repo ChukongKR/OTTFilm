@@ -17,12 +17,14 @@
 @end
 @implementation OTTUserInfoTableViewCell
 
-- (void)awakeFromNib {
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
     if ([OTTUserTool isLogin]) {
         self.loginButton.hidden = YES;
         self.headImageView.image = [UIImage imageNamed:@"08353"];
         self.userNameLabel.text = [OTTUserTool sharedOTTUserTool].userName;
-        self.userNicknameLabel.text = [OTTUserTool sharedOTTUserTool].userMail;;
+        self.userNicknameLabel.text = [OTTUserTool sharedOTTUserTool].userMail;
     }else {
         self.headImageView.image = nil;
         self.userNameLabel.text = nil;
@@ -42,7 +44,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginStatusChanged:) name:@"DidLoginStatusChangeNotification" object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,26 +57,24 @@
 
 }
 
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)loginStatusChanged:(NSNotification *)notification {
-    
-}
-
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 1) {
         cell.detailTextLabel.text = @"地区";
+    }else {
+        
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section != 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        if (![OTTUserTool isLogin] && indexPath.row != 1) {
-            [self performSegueWithIdentifier:@"userLogin" sender:self];
+        if (indexPath.row != 1) {
+            if (![OTTUserTool isLogin]) {
+                [self performSegueWithIdentifier:@"userLogin" sender:self];
+            }else if (indexPath.row == 3) {
+                [self performSegueWithIdentifier:@"showFavoriteList" sender:self];
+            }
         }else {
             [self performSegueWithIdentifier:@"changeCity" sender:self];
         }

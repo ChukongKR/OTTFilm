@@ -22,9 +22,30 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
+}
+
+- (IBAction)logout {
+    [OTTUserTool userLogout];
+    
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"警告" message:@"确定要退出登录吗" actions:@[confirmAction, cancelAction]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - TableiViewDataSource
@@ -54,6 +75,8 @@
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"清除缓存" message:@"确定要清除缓存吗" actions:@[confirmAction, cancelAction]];
         
         [self presentViewController:alertController animated:YES completion:nil];
+    }else if (indexPath.row == 1) {
+        
     }
 }
 

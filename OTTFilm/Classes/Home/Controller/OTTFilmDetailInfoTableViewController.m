@@ -8,6 +8,7 @@
 
 #import "OTTFilmDetailInfoTableViewController.h"
 #import "OTTNetworkingTool.h"
+#import "OTTUserTool.h"
 #import "OTTFilmInfo.h"
 #import "OTTFilmDetailInfoTableViewHeadCell.h"
 #import "OTTFilmDetailInfoTableViewBottomCell.h"
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet OTTFilmDetailInfoTableViewHeadCell *headCell;
 @property (weak, nonatomic) IBOutlet OTTFilmDetailInfoTableViewBottomCell *bottomCell;
 
+
+@property (weak, nonatomic) IBOutlet UIButton *heartButton;
 @end
 
 @implementation OTTFilmDetailInfoTableViewController
@@ -35,6 +38,21 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([OTTUserTool isLogin]) {
+        NSArray *lists = [OTTUserTool getUserFavoriteList];
+        for (OTTFilmInfo *filmInfo in lists) {
+            if ([filmInfo.title isEqualToString:self.filmTitle]) {
+                self.heartButton.selected = YES;
+            }else {
+                self.heartButton.selected = NO;
+            }
+        }
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
@@ -43,15 +61,27 @@
 
 - (void)loadData {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [OTTNetworkingTool queryFilmInfoWithTitle:self.filmTitle completion:^(id response) {
-        if (response) {
-            self.filmInfo = response;
-        }else {
-            [self showNotfoundInfo];
-        }
-        [self.tableView reloadData];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    }];
+    if (self.filmTitle) {
+        [OTTNetworkingTool queryFilmInfoWithTitle:self.filmTitle completion:^(id response) {
+            if (response) {
+                self.filmInfo = response;
+            }else {
+                [self showNotfoundInfo];
+            }
+            [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }];
+    }else if (self.filmId) {
+        [OTTNetworkingTool queryFilmInfoWithID:self.filmId completion:^(id response) {
+            if (response) {
+                self.filmInfo = response;
+            }else {
+                [self showNotfoundInfo];
+            }
+            [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }];
+    }
 }
 
 - (void)showNotfoundInfo {
@@ -60,6 +90,39 @@
     self.tableView.scrollEnabled = NO;
     [UIView notfoundViewAddedTo:self.view];
 }
+
+
+- (IBAction)clickHeartButton:(UIButton *)sender {
+    if ([OTTUserTool isLogin]) {
+        if ([self updateFavoriteList]) {
+            sender.enabled = NO;
+            [UIView animateWithDuration:0.2 animations:^{
+                sender.transform = CGAffineTransformMakeScale(1.2, 1.2);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    sender.transform = CGAffineTransformIdentity;
+                } completion:^(BOOL finished) {
+                    if (finished) {
+                        sender.selected = !sender.selected;
+                    }
+                    sender.enabled = YES;
+                }];
+            }];
+        }
+    }else {
+        [self performSegueWithIdentifier:@"HomeRegister" sender:nil];
+    }
+    
+}
+
+- (BOOL)updateFavoriteList {
+    if (!self.heartButton.selected) {
+        return [OTTUserTool addFilmToFavoriteList:self.filmInfo];
+    }else {
+        return [OTTUserTool removeFilmFromFavoriteList:self.filmInfo];
+    }
+}
+
 
 #pragma mark - TableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,5 +145,7 @@
         return @"简介";
     }
 }
+
+
 
 @end
