@@ -16,10 +16,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *filmTagLabel;
 @property (weak, nonatomic) IBOutlet UILabel *filmRatingLabel;
 @property (weak, nonatomic) IBOutlet OTTFilmActorsScrollView *actorScrollView;
+
+@property (weak, nonatomic) OTTFilmInfo *filmInfo;
 @end
 @implementation OTTFilmDetailInfoTableViewHeadCell
 
 - (void)configureCellWithFilmInfo:(OTTFilmInfo *)filmInfo {
+    self.filmInfo = filmInfo;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:filmInfo.images[@"medium"]]];
         dispatch_async(dispatch_get_main_queue(), ^{

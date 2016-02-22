@@ -12,10 +12,10 @@
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
-        self.itemSize = CGSizeMake(OTT_WINDOW_WIDTH/2, OTT_WINDOW_HEIGHT - 350);
-        self.sectionInset = UIEdgeInsetsMake(0, OTT_WINDOW_WIDTH/4, 0, OTT_WINDOW_WIDTH/4);
-        self.minimumLineSpacing = 60;
+        self.itemSize = CGSizeMake(OTT_WINDOW_WIDTH - 60, OTT_WINDOW_HEIGHT - 150);
+        self.sectionInset = UIEdgeInsetsMake(0, 30, 0, 30);
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        self.minimumLineSpacing = 60;
     }
     return self;
 }
@@ -31,16 +31,13 @@
     for (UICollectionViewLayoutAttributes *attribute in allAttributes) {
         CGFloat centerX = attribute.center.x;
         CGFloat distance = centerX - x;
-        CGFloat scale = 1 + 0.5 * (1 - ABS(distance/180));
-        
-        attribute.transform3D = CATransform3DMakeScale(scale, scale, 1);
-        
-//        CGFloat rotation = distance/300;
-//        if (distance > -300 && distance < 0) {
-//            attribute.transform3D = CATransform3DMakeRotation(rotation * M_PI_2, 0, 1, 0);
-//        }else if (distance < 300 && distance > 0) {
-//            attribute.transform3D = CATransform3DMakeRotation(rotation * -M_PI_2, 0, 1, 0);
-//        }
+        CGFloat rotation = ABS(distance/250);
+
+        if (distance > -375 && distance < 0) {
+            attribute.transform3D = CATransform3DMakeRotation(rotation * M_PI/6, 0, 1, -0.1);
+        }else if (distance < 375 && distance > 0) {
+            attribute.transform3D = CATransform3DMakeRotation(rotation * -M_PI/6, 0, 1, -0.1);
+        }
     }
     return allAttributes;
 }

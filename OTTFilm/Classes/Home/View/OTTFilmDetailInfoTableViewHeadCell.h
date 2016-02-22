@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class OTTFilmInfo;
+
 @interface OTTFilmDetailInfoTableViewHeadCell : UITableViewCell
 
 - (void)configureCellWithFilmInfo:(OTTFilmInfo *)filmInfo;

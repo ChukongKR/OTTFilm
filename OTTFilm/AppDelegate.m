@@ -26,10 +26,7 @@
         self.window.rootViewController = [[UIViewController alloc] init];
         
         [self.window makeKeyAndVisible];
-        NSLog(@"First");
         [[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"isFirstOpen"];
-    }else {
-        NSLog(@"Not First");
     }
     
     return YES;

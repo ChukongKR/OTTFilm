@@ -14,7 +14,9 @@ typedef void(^OTTFailureBlock)(NSError *error);
 
 + (void)getFilmRankingInfoWithcompletion:(OTTCompletionBlock)completion;
 
++ (void)queryFilmInfoWithID:(NSString *)movieID completion:(OTTCompletionBlock)completion;
 + (void)queryFilmInfoWithTitle:(NSString *)movieTitle completion:(OTTCompletionBlock)completion;
++ (void)queryAllFilmInfoWithTitle:(NSString *)movieTitle completion:(OTTCompletionBlock)completion;
 
 + (void)getPresentingFilmInfosWithArea:(NSString *)area completion:(OTTCompletionBlock)completion;
 

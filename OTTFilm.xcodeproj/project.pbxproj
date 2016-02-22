@@ -23,6 +23,7 @@
 		CC1CC23C1C6079F4004C6298 /* OTTNetworkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1CC23B1C6079F4004C6298 /* OTTNetworkingTool.m */; };
 		CC1F7B5F1C745966006362C6 /* OTTPresentingFilmInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1F7B5E1C745966006362C6 /* OTTPresentingFilmInfo.m */; };
 		CC27B2331C75A213009E37D5 /* OTTSoonPresentingFilmInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC27B2321C75A213009E37D5 /* OTTSoonPresentingFilmInfo.m */; };
+		CC40E26A1C7A9EBD00F5C3AB /* OTTFilmSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC40E2691C7A9EBD00F5C3AB /* OTTFilmSearchTableViewController.m */; };
 		CC518FE51C76A5BE00D5759E /* OTTDataTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FE41C76A5BE00D5759E /* OTTDataTool.m */; };
 		CC518FE81C76B91600D5759E /* OTTUSBOXFilmInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FE71C76B91600D5759E /* OTTUSBOXFilmInfo.m */; };
 		CC518FEF1C76DB3700D5759E /* OTTEventCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC518FEE1C76DB3700D5759E /* OTTEventCollectionViewController.m */; };
@@ -51,6 +52,7 @@
 		CC97F3491C5BA4D7008AFE9A /* LoginAndRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC97F3451C5BA4D7008AFE9A /* LoginAndRegister.storyboard */; };
 		CC97F34E1C5BC367008AFE9A /* OTTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC97F34D1C5BC367008AFE9A /* OTTLoginViewController.m */; };
 		CC9E0DA01C6DE31600B7C76E /* OTTUserInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC9E0D9F1C6DE31600B7C76E /* OTTUserInfo.storyboard */; };
+		CCA70E4A1C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCA70E491C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.m */; };
 		CCB16C7F1C644BF300FFE510 /* OTTFilmInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB16C7E1C644BF300FFE510 /* OTTFilmInfo.m */; };
 		CCB16C841C644CF300FFE510 /* OTTUserInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB16C831C644CF300FFE510 /* OTTUserInfoTableViewController.m */; };
 		CCB16C871C644E3700FFE510 /* OTTDatabaseTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB16C861C644E3700FFE510 /* OTTDatabaseTool.m */; };
@@ -96,6 +98,8 @@
 		CC2F4B0F1C740ED30068F3EA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CC2F4B111C740EE70068F3EA /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		CC2F4B131C740EEF0068F3EA /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		CC40E2681C7A9EBD00F5C3AB /* OTTFilmSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTFilmSearchTableViewController.h; sourceTree = "<group>"; };
+		CC40E2691C7A9EBD00F5C3AB /* OTTFilmSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTFilmSearchTableViewController.m; sourceTree = "<group>"; };
 		CC518FE31C76A5BE00D5759E /* OTTDataTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTDataTool.h; sourceTree = "<group>"; };
 		CC518FE41C76A5BE00D5759E /* OTTDataTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTDataTool.m; sourceTree = "<group>"; };
 		CC518FE61C76B91600D5759E /* OTTUSBOXFilmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTUSBOXFilmInfo.h; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 		CC97F34C1C5BC367008AFE9A /* OTTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTLoginViewController.h; sourceTree = "<group>"; };
 		CC97F34D1C5BC367008AFE9A /* OTTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTLoginViewController.m; sourceTree = "<group>"; };
 		CC9E0D9F1C6DE31600B7C76E /* OTTUserInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OTTUserInfo.storyboard; sourceTree = "<group>"; };
+		CCA70E481C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTUserFavoriteTableViewController.h; sourceTree = "<group>"; };
+		CCA70E491C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTUserFavoriteTableViewController.m; sourceTree = "<group>"; };
 		CCB16C7D1C644BF300FFE510 /* OTTFilmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTFilmInfo.h; sourceTree = "<group>"; };
 		CCB16C7E1C644BF300FFE510 /* OTTFilmInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTFilmInfo.m; sourceTree = "<group>"; };
 		CCB16C821C644CF300FFE510 /* OTTUserInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTUserInfoTableViewController.h; sourceTree = "<group>"; };
@@ -206,6 +212,8 @@
 			children = (
 				CC03AD251C71765800E3D431 /* OTTFilmDetailInfoTableViewController.h */,
 				CC03AD261C71765800E3D431 /* OTTFilmDetailInfoTableViewController.m */,
+				CC40E2681C7A9EBD00F5C3AB /* OTTFilmSearchTableViewController.h */,
+				CC40E2691C7A9EBD00F5C3AB /* OTTFilmSearchTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -509,6 +517,8 @@
 				CCB16C831C644CF300FFE510 /* OTTUserInfoTableViewController.m */,
 				CCC930E81C71C6760022D829 /* OTTUserSettingTableViewController.h */,
 				CCC930E91C71C6760022D829 /* OTTUserSettingTableViewController.m */,
+				CCA70E481C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.h */,
+				CCA70E491C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -691,6 +701,7 @@
 				CC6547561C5C6770007E322E /* UIBarButtonItem+Addtion.m in Sources */,
 				CC518FF71C76E03A00D5759E /* OTTScalableLayout.m in Sources */,
 				CCC930ED1C71C7540022D829 /* UIAlertController+Addtion.m in Sources */,
+				CC40E26A1C7A9EBD00F5C3AB /* OTTFilmSearchTableViewController.m in Sources */,
 				CCB16C841C644CF300FFE510 /* OTTUserInfoTableViewController.m in Sources */,
 				CC65475C1C5C7DA0007E322E /* OTTSpecialViewController.m in Sources */,
 				CCC930F51C7232970022D829 /* UIView+Addtion.m in Sources */,
@@ -705,6 +716,7 @@
 				CC1A83C91C7417C7001898E2 /* OTTGeneralRegisterAndMissingView.m in Sources */,
 				CC813B721C71AA870004D8D4 /* OTTFilmDetailInfoTableViewBottomCell.m in Sources */,
 				CC65476C1C5C82EB007E322E /* OTTSpecialTableViewCell.m in Sources */,
+				CCA70E4A1C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.m in Sources */,
 				CC5BF6921C7565DC00F309DA /* OTTAreaSelectionTableViewController.m in Sources */,
 				CC6547621C5C7F79007E322E /* ArrayDataSource.m in Sources */,
 				CC97F3241C5BA22C008AFE9A /* main.m in Sources */,

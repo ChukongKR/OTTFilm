@@ -10,6 +10,7 @@
 
 @interface OTTFilmDetailInfoTableViewController : UITableViewController
 
-@property (copy, nonatomic) NSString * filmTitle;
+@property (copy, nonatomic) NSString *filmTitle;
+@property (copy, nonatomic) NSString *filmId;
 
 @end

@@ -15,42 +15,10 @@
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
                   <ActionContent
-                     consoleCommand = "po foo">
+                     consoleCommand = "po exceotions">
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OTTFilm/Classes/OTTLoginAndRegister/Controller/OTTLoginViewController.m"
-            timestampString = "477576390.656183"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "-ottForgetPassView:didFinishEnterWithRegisterInfo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OTTFilm/Classes/OTTUserInfo/Controller/OTTUserInfoTableViewController.m"
-            timestampString = "477576667.540885"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
