@@ -32,7 +32,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="专题" id="YJx-LE-F4i"/>
                     <connections>
-                        <segue destination="jLN-Nl-ElK" kind="show" identifier="showCategoryList" id="U0a-gO-6ip"/>
+                        <segue destination="jLN-Nl-ElK" kind="show" identifier="showCategoryDetail" id="U0a-gO-6ip"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m6L-jV-RuF" userLabel="First Responder" sceneMemberID="firstResponder"/>

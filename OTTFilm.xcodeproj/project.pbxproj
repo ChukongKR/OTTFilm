@@ -42,6 +42,9 @@
 		CC6547651C5C81A6007E322E /* OTTGeneralTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC6547641C5C81A6007E322E /* OTTGeneralTableView.m */; };
 		CC65476C1C5C82EB007E322E /* OTTSpecialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC65476A1C5C82EB007E322E /* OTTSpecialTableViewCell.m */; };
 		CC65476D1C5C82EB007E322E /* OTTSpecialTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC65476B1C5C82EB007E322E /* OTTSpecialTableViewCell.xib */; };
+		CC7117F61C7D4A6A002981AB /* OTTUserConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7117F51C7D4A6A002981AB /* OTTUserConfigurationViewController.m */; };
+		CC7117F91C7D4D6B002981AB /* OTTUserPasswordChangingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7117F81C7D4D6B002981AB /* OTTUserPasswordChangingView.m */; };
+		CC7117FB1C7D4D77002981AB /* OTTUserPassChangingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7117FA1C7D4D77002981AB /* OTTUserPassChangingView.xib */; };
 		CC813B6F1C719F910004D8D4 /* OTTFilmDetailInfoTableViewHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC813B6E1C719F910004D8D4 /* OTTFilmDetailInfoTableViewHeadCell.m */; };
 		CC813B721C71AA870004D8D4 /* OTTFilmDetailInfoTableViewBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC813B711C71AA870004D8D4 /* OTTFilmDetailInfoTableViewBottomCell.m */; };
 		CC813B751C71B2AA0004D8D4 /* OTTFilmActorsScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC813B741C71B2AA0004D8D4 /* OTTFilmActorsScrollView.m */; };
@@ -131,6 +134,11 @@
 		CC6547691C5C82EB007E322E /* OTTSpecialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTSpecialTableViewCell.h; sourceTree = "<group>"; };
 		CC65476A1C5C82EB007E322E /* OTTSpecialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTSpecialTableViewCell.m; sourceTree = "<group>"; };
 		CC65476B1C5C82EB007E322E /* OTTSpecialTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTTSpecialTableViewCell.xib; sourceTree = "<group>"; };
+		CC7117F41C7D4A6A002981AB /* OTTUserConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTUserConfigurationViewController.h; sourceTree = "<group>"; };
+		CC7117F51C7D4A6A002981AB /* OTTUserConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTUserConfigurationViewController.m; sourceTree = "<group>"; };
+		CC7117F71C7D4D6B002981AB /* OTTUserPasswordChangingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTUserPasswordChangingView.h; sourceTree = "<group>"; };
+		CC7117F81C7D4D6B002981AB /* OTTUserPasswordChangingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTUserPasswordChangingView.m; sourceTree = "<group>"; };
+		CC7117FA1C7D4D77002981AB /* OTTUserPassChangingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OTTUserPassChangingView.xib; sourceTree = "<group>"; };
 		CC813B6D1C719F910004D8D4 /* OTTFilmDetailInfoTableViewHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTFilmDetailInfoTableViewHeadCell.h; sourceTree = "<group>"; };
 		CC813B6E1C719F910004D8D4 /* OTTFilmDetailInfoTableViewHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTTFilmDetailInfoTableViewHeadCell.m; sourceTree = "<group>"; };
 		CC813B701C71AA870004D8D4 /* OTTFilmDetailInfoTableViewBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTTFilmDetailInfoTableViewBottomCell.h; sourceTree = "<group>"; };
@@ -519,6 +527,8 @@
 				CCC930E91C71C6760022D829 /* OTTUserSettingTableViewController.m */,
 				CCA70E481C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.h */,
 				CCA70E491C7AFDD4006DC348 /* OTTUserFavoriteTableViewController.m */,
+				CC7117F41C7D4A6A002981AB /* OTTUserConfigurationViewController.h */,
+				CC7117F51C7D4A6A002981AB /* OTTUserConfigurationViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -535,6 +545,9 @@
 		CCC930EF1C71D3BD0022D829 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CC7117F71C7D4D6B002981AB /* OTTUserPasswordChangingView.h */,
+				CC7117F81C7D4D6B002981AB /* OTTUserPasswordChangingView.m */,
+				CC7117FA1C7D4D77002981AB /* OTTUserPassChangingView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -619,6 +632,7 @@
 				CC1A83D01C741FA2001898E2 /* OTTRegisterView.xib in Resources */,
 				CC03AD241C71718200E3D431 /* OTTHome.storyboard in Resources */,
 				CC9E0DA01C6DE31600B7C76E /* OTTUserInfo.storyboard in Resources */,
+				CC7117FB1C7D4D77002981AB /* OTTUserPassChangingView.xib in Resources */,
 				CC65476D1C5C82EB007E322E /* OTTSpecialTableViewCell.xib in Resources */,
 				CCC1379A1C73799F001A2B91 /* OTTForgetPassView.xib in Resources */,
 				CC518FF11C76DB4200D5759E /* OTTEvent.storyboard in Resources */,
@@ -709,7 +723,9 @@
 				CC1F7B5F1C745966006362C6 /* OTTPresentingFilmInfo.m in Sources */,
 				CC813B6F1C719F910004D8D4 /* OTTFilmDetailInfoTableViewHeadCell.m in Sources */,
 				CC1CC23C1C6079F4004C6298 /* OTTNetworkingTool.m in Sources */,
+				CC7117F91C7D4D6B002981AB /* OTTUserPasswordChangingView.m in Sources */,
 				CC518FE51C76A5BE00D5759E /* OTTDataTool.m in Sources */,
+				CC7117F61C7D4A6A002981AB /* OTTUserConfigurationViewController.m in Sources */,
 				CC518FFB1C76E25400D5759E /* OTTEventCollectionViewCell.m in Sources */,
 				CCB16C871C644E3700FFE510 /* OTTDatabaseTool.m in Sources */,
 				CCC137981C7376DF001A2B91 /* OTTForgetPassView.m in Sources */,

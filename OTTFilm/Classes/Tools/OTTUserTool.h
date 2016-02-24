@@ -12,12 +12,15 @@
 
 @property (copy, nonatomic, readonly) NSString *userName;
 @property (copy, nonatomic, readonly) NSString *userMail;
+@property (copy, nonatomic, readonly) NSString *userPhoneNum;
 
 + (instancetype)sharedOTTUserTool;
 
 + (BOOL)isLogin;
 + (BOOL)userRegisterWithUserInfo:(NSDictionary *)userInfo;
 + (BOOL)userLoginWithAccess:(NSDictionary *)access;
++ (BOOL)userUpdatePasswordWith:(NSDictionary *)dict;
++ (BOOL)userUpdateInfoWith:(NSDictionary *)info;
 + (BOOL)userLogout;
 
 + (BOOL)addFilmToFavoriteList:(OTTFilmInfo *)filmInfo;

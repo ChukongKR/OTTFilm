@@ -72,6 +72,8 @@
         if (indexPath.row != 1) {
             if (![OTTUserTool isLogin]) {
                 [self performSegueWithIdentifier:@"userLogin" sender:self];
+            }else if (indexPath.row == 2) {
+                [self performSegueWithIdentifier:@"configureUserInfo" sender:self];
             }else if (indexPath.row == 3) {
                 [self performSegueWithIdentifier:@"showFavoriteList" sender:self];
             }
@@ -83,7 +85,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return [OTTUserTool isLogin]? 120 : 44;
+        return [OTTUserTool isLogin]? 100 : 44;
     }else {
         return 44;
     }

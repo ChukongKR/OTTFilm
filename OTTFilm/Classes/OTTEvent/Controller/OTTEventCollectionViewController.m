@@ -8,11 +8,12 @@
 
 #import "OTTEventCollectionViewController.h"
 #import "OTTEventCollectionViewCell.h"
+#import "OTTFilmDetailInfoTableViewController.h"
 #import "OTTNetworkingTool.h"
 #import "OTTUSBOXFilmInfo.h"
 @interface OTTEventCollectionViewController ()
 
-@property (strong, nonatomic) NSArray *allUSBoxs;
+@property (strong, nonatomic) NSArray<OTTUSBOXFilmInfo *> *allUSBoxs;
 
 @end
 
@@ -62,12 +63,12 @@ static NSString * const reuseIdentifier = @"EventCell";
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"showCategoryList" sender:self];
+    [self performSegueWithIdentifier:@"showCategoryDetail" sender:self];
 }
 
 #pragma mark - UINavigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    //
     
 }
 
