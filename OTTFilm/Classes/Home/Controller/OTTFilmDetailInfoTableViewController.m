@@ -41,16 +41,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if ([OTTUserTool isLogin]) {
-        NSArray *lists = [OTTUserTool getUserFavoriteList];
-        for (OTTFilmInfo *filmInfo in lists) {
-            if ([filmInfo.title isEqualToString:self.filmTitle]) {
-                self.heartButton.selected = YES;
-            }else {
-                self.heartButton.selected = NO;
-            }
-        }
-    }
+    [self updateHeartButton];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -59,6 +50,7 @@
     [UIView hideNotfoundViewFrom:self.view];
 }
 
+#pragma mark - Private Methods
 - (void)loadData {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     if (self.filmTitle) {
@@ -81,6 +73,10 @@
             [self.tableView reloadData];
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
+    }else {
+        [self showNotfoundInfo];
+        [self.tableView reloadData];
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
     }
 }
 
@@ -91,7 +87,29 @@
     [UIView notfoundViewAddedTo:self.view];
 }
 
+- (void)updateHeartButton {
+    if ([OTTUserTool isLogin]) {
+        NSArray *lists = [OTTUserTool getUserFavoriteList];
+        for (OTTFilmInfo *filmInfo in lists) {
+            if ([filmInfo.title isEqualToString:self.filmTitle]) {
+                self.heartButton.selected = YES;
+                break;
+            }else {
+                self.heartButton.selected = NO;
+            }
+        }
+    }
+}
 
+- (BOOL)updateFavoriteList {
+    if (!self.heartButton.selected) {
+        return [OTTUserTool addFilmToFavoriteList:self.filmInfo];
+    }else {
+        return [OTTUserTool removeFilmFromFavoriteList:self.filmInfo];
+    }
+}
+
+#pragma mark - IBAction
 - (IBAction)clickHeartButton:(UIButton *)sender {
     if ([OTTUserTool isLogin]) {
         if ([self updateFavoriteList]) {
@@ -115,13 +133,7 @@
     
 }
 
-- (BOOL)updateFavoriteList {
-    if (!self.heartButton.selected) {
-        return [OTTUserTool addFilmToFavoriteList:self.filmInfo];
-    }else {
-        return [OTTUserTool removeFilmFromFavoriteList:self.filmInfo];
-    }
-}
+
 
 
 #pragma mark - TableViewDataSource

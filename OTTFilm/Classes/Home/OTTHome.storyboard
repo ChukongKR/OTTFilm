@@ -212,7 +212,7 @@
         <scene sceneID="kUU-qb-2Np">
             <objects>
                 <tableViewController storyboardIdentifier="FilmDetail" hidesBottomBarWhenPushed="YES" id="icO-CM-Jsx" customClass="OTTFilmDetailInfoTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="goN-Wt-ZMm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="goN-Wt-ZMm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -469,7 +469,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="actorScrollView" destination="ZvQ-Ss-Lyx" id="p1B-72-ikb"/>
                                             <outlet property="filmDirectorLabel" destination="35e-pj-0Do" id="vrT-9q-efQ"/>
@@ -530,7 +530,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="filmIntroLabel" destination="IjH-Q2-5rJ" id="miR-b5-5lO"/>
                                         </connections>
@@ -553,7 +553,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Hx-d8-J85" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1999.5" y="-636"/>
+            <point key="canvasLocation" x="2094" y="-636"/>
         </scene>
         <!--LoginAndRegister-->
         <scene sceneID="wIV-px-pQB">

@@ -15,6 +15,7 @@
 
 @property (copy, nonatomic, readwrite) NSString *userName;
 @property (copy, nonatomic, readwrite) NSString *userMail;
+@property (copy, nonatomic, readwrite) NSString *userPhoneNum;
 
 @property (assign, nonatomic, getter=isLogin) BOOL login;
 
@@ -45,21 +46,53 @@ static OTTUserTool *_sharedUserTool = nil;
     return result;
 }
 
-+ (BOOL)userLoginWithAccess:(NSDictionary *)access {
++ (NSDictionary *)queryAccessWithAccount:(NSString *)account pass:(NSString *)pass {
+    NSDictionary *info = [NSDictionary dictionary];
     FMDatabase *database = [OTTDatabaseTool sharedDatabase];
     BOOL success = NO;
-    FMResultSet *result = [database executeQueryWithFormat:@"select * from OTTUser where account = %@", access[@"account"]];
+    FMResultSet *result = [database executeQueryWithFormat:@"select * from OTTUser where account = %@", account];
     while ([result next]) {
-        NSString *pass = [result stringForColumn:@"pass"];
-        if ([pass isEqualToString:[access[@"pass"] md5String]]) {
+        NSString *password = [result stringForColumn:@"pass"];
+        if ([password isEqualToString:[pass md5String]]) {
             success = YES;
             NSString *mail = [result stringForColumn:@"mail"];
-            [[self sharedOTTUserTool] setLogin:YES];
-            [[self sharedOTTUserTool] setUserName:access[@"account"]];
-            [[self sharedOTTUserTool] setUserMail:mail];
-            break;
+            NSString *phoneNum = [result stringForColumn:@"phoneNum"];
+            info = @{@"account":account, @"pass":password, @"mail":mail, @"phoneNum":phoneNum};
         }
     }
+    [database close];
+    return success? info:nil;
+}
+
++ (BOOL)userLoginWithAccess:(NSDictionary *)access {
+    
+    NSDictionary *result = [self queryAccessWithAccount:access[@"account"] pass:access[@"pass"]];
+    if (result) {
+        [[self sharedOTTUserTool] setUserName:result[@"account"]];
+        [[self sharedOTTUserTool] setUserMail:result[@"mail"]];
+        [[self sharedOTTUserTool] setUserPhoneNum:result[@"phoneNum"]];
+        [[self sharedOTTUserTool] setLogin:YES];
+        return YES;
+    }
+    return NO;
+}
+
++ (BOOL)userUpdatePasswordWith:(NSDictionary *)dict {
+    NSDictionary *result = [self queryAccessWithAccount:[[self sharedOTTUserTool] userName] pass:dict[@"originalPass"]];
+    if (result) {
+        FMDatabase *databse = [OTTDatabaseTool sharedDatabase];
+        BOOL success = [databse executeUpdate:@"update OTTUser set pass = ? where account = ?", [dict[@"newPass"] md5String], result[@"account"]];
+        [databse close];
+        return success;
+    }
+    return NO;
+}
+
++ (BOOL)userUpdateInfoWith:(NSDictionary *)info {
+    FMDatabase *database = [OTTDatabaseTool sharedDatabase];
+    BOOL success = [database executeUpdate:@"update OTTUser set phoneNum = ? where account = ?; \
+                                             update OTTUser set mail = ? where account = ?      \
+                    ", info[@"phoneNum"], [[self sharedOTTUserTool] userName], info[@"mail"], [[self sharedOTTUserTool] userName]];
     [database close];
     return success;
 }

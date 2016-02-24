@@ -25,16 +25,19 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (NSArray<OTTFilmInfo *> *)allFavoriteFilms {
-    if (!_allFavoriteFilms) {
-        _allFavoriteFilms = [OTTUserTool getUserFavoriteList];
-    }
-    return _allFavoriteFilms;
+    return [OTTUserTool getUserFavoriteList];
 }
 
 #pragma mark - UITableViewDataSource
