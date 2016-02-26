@@ -21,8 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -33,11 +31,14 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (NSArray<OTTFilmInfo *> *)allFavoriteFilms {
-    return [OTTUserTool getUserFavoriteList];
+    if (!_allFavoriteFilms) {
+        _allFavoriteFilms = [OTTUserTool getUserFavoriteList];
+    }
+    return _allFavoriteFilms;
 }
 
 #pragma mark - UITableViewDataSource
@@ -53,13 +54,6 @@
     cell.imageView.image = [UIImage imageWithData:data];
     cell.textLabel.text = self.allFavoriteFilms[indexPath.row].title;
     
-    UIButton *button = [[UIButton alloc] init];
-    [button setImage:[UIImage imageNamed:@"empty_heart"] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:@"red_heart"] forState:UIControlStateSelected];
-    [button setTitle:nil forState:UIControlStateNormal];
-    cell.accessoryView = button;
-    
-    
     return cell;
 }
 
@@ -73,6 +67,14 @@
     if ([segue.identifier isEqualToString:@"showFilmDetail"]) {
         OTTFilmDetailInfoTableViewController *filmDTVC = (OTTFilmDetailInfoTableViewController *)segue.destinationViewController;
         filmDTVC.filmTitle = self.allFavoriteFilms[[self.tableView indexPathForSelectedRow].row].title;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [OTTUserTool removeFilmFromFavoriteList:self.allFavoriteFilms[indexPath.row]];
+        self.allFavoriteFilms = nil;
+        [tableView reloadData];
     }
 }
 

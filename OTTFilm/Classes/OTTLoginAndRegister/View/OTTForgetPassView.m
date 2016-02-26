@@ -7,6 +7,7 @@
 //
 
 #import "OTTForgetPassView.h"
+#import "OTTUserTool.h"
 #import <SMS_SDK/SMSSDK.h>
 @interface OTTForgetPassView()
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
@@ -19,24 +20,26 @@
 
 @end
 @implementation OTTForgetPassView
-
 - (IBAction)cancel {
     [self cancelAndBack];
 }
 
 - (IBAction)getVertification:(UIButton *)sender {
-    self.vertificationSent = YES;
-    if (self.phoneNumTextField.text.length == 11) {
+    sender.enabled = NO;
+    if (self.phoneNumTextField.text.length == 11 && [OTTUserTool userQueryAccessForChangingPassWithPhoneNum:self.phoneNumTextField.text]) {
+        self.currentTime = 60;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+        [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+        self.vertificationSent = YES;
+        
         [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.phoneNumTextField.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
             if (!error) {
-                sender.enabled = !self.vertificationSent;
-                self.currentTime = 60;
-                self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
-                [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+                
             }
         }];
     }else {
         // 输入正确的手机号
+        sender.enabled = YES;
     }
 }
 
@@ -47,14 +50,15 @@
 }
 
 - (void)updateTime {
-    self.currentTime--;
     if (self.currentTime != 0) {
-        [self.sendMessageButton setTitle:[NSString stringWithFormat:@"%ld", self.currentTime] forState:UIControlStateDisabled];
+        [self.sendMessageButton setTitle:[NSString stringWithFormat:@"%ld", self.currentTime] forState:UIControlStateNormal];
+        self.currentTime--;
     }else {
         self.sendMessageButton.enabled = YES;
+        [self.sendMessageButton setTitle:@"发送" forState:UIControlStateNormal];
         [self.timer invalidate];
+        self.timer = nil;
     }
 }
-
 
 @end

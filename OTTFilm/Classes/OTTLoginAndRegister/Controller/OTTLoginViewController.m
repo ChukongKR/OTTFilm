@@ -12,8 +12,9 @@
 #import "OTTRegisterView.h"
 #import "OTTUserTool.h"
 #import <SMS_SDK/SMSSDK.h>
+#import "UIView+Addtion.h"
 
-@interface OTTLoginViewController () <OTTRegisterAndMissingViewDelegate>
+@interface OTTLoginViewController () <OTTRegisterAndMissingViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *userAccountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *userPassTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *baseScrollView;
 @property (strong, nonatomic) OTTForgetPassView *forgetPassView;
 @property (strong, nonatomic) OTTRegisterView *registerView;
+@property (weak, nonatomic) IBOutlet UIView *loginView;
 @end
 
 @implementation OTTLoginViewController
@@ -95,13 +97,18 @@
 
 #pragma mark - IBAction
 - (IBAction)loginAction {
-    if (self.userAccountTextField.text.length > 0 && self.userPassTextField.text.length > 0) {
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertController *alertController;
+    if (self.userAccountTextField.text.length >= 6 && self.userPassTextField.text.length >= 6) {
         if ([OTTUserTool userLoginWithAccess:@{@"account":self.userAccountTextField.text, @"pass":self.userPassTextField.text}]) {
             [self backAndDismiss];
+        }else {
+            alertController = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"用户名或密码错误" actions:@[cancelAction]];
+            [self presentViewController:alertController animated:YES completion:nil];
         }
     }else {
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"必须输入用户名和密码" actions:@[cancelAction]];
+        [self.loginView failureAnimationWithDuration:0.33 rate:1];
+        alertController = [UIAlertController alertControllerWithTitle:@"登录失败" message:@"输入正确的用户名和密码" actions:@[cancelAction]];
         
         [self presentViewController:alertController animated:YES completion:nil];
     }
@@ -120,7 +127,7 @@
 }
 
 #pragma mark - OTTForgetPassViewDelegate
-- (void)ottForgetPassViewDidCancelPasswordChanging:(OTTForgetPassView *)ottForgetPassView {
+- (void)ottGeneralRegisterAndMissingViewDidCancelAndBack:(OTTGeneralRegisterAndMissingView *)view {
     [self.baseScrollView setContentOffset:CGPointZero animated:YES];
 }
 
@@ -128,6 +135,7 @@
     [SMSSDK commitVerificationCode:ver phoneNumber:num zone:@"86" result:^(NSError *error) {
         if (!error) {
             // Change password
+            
             [self.baseScrollView setContentOffset:CGPointZero animated:YES];
         }else {
             // Error
@@ -143,6 +151,38 @@
             [self refreshView:self.registerView];
         }
     }
+}
+
+- (void)ottRegisterViewSelectImage:(OTTGeneralRegisterAndMissingView *)registerView {
+    UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+    pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    pickerController.delegate = self;
+    [self presentViewController:pickerController animated:YES completion:nil];
+}
+
+- (void)registerView:(OTTGeneralRegisterAndMissingView *)registerView failureWithInfo:(NSString *)failureInfo {
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册失败" message:failureInfo actions:@[cancelAction]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    self.baseScrollView.contentOffset = CGPointMake(OTT_WINDOW_WIDTH, 0);
+    [self dismissViewControllerAnimated:YES completion:^{
+        self.registerView.headIcon = info[UIImagePickerControllerOriginalImage];
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    self.baseScrollView.contentOffset = CGPointMake(OTT_WINDOW_WIDTH, 0);
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
 }
 
 @end

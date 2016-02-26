@@ -13,7 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #define OTTFILMIMAGECACHESDIRECTORY [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"filmImageCache"]
 
-#define OTT_WINDOW_WIDTH [UIApplication sharedApplication].keyWindow.bounds.size.width
+#define OTT_WINDOW_WIDTH  [UIApplication sharedApplication].keyWindow.bounds.size.width
 #define OTT_WINDOW_HEIGHT [UIApplication sharedApplication].keyWindow.bounds.size.height
 #define OTT_WINDOW_BOUNDS [UIApplication sharedApplication].keyWindow.bounds
 

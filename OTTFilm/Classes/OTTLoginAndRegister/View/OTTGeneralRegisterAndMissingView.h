@@ -10,10 +10,11 @@
 @class OTTGeneralRegisterAndMissingView;
 @protocol OTTRegisterAndMissingViewDelegate <NSObject>
 
-- (void)ottForgetPassViewDidCancelPasswordChanging:(OTTGeneralRegisterAndMissingView  *)ottForgetPassView;
+- (void)ottGeneralRegisterAndMissingViewDidCancelAndBack:(OTTGeneralRegisterAndMissingView *)view;
 - (void)ottForgetPassView:(OTTGeneralRegisterAndMissingView *)ottForgetPassView didFinishEnterWithVertification:(NSString *)ver phoneNum:(NSString *)num;
 - (void)ottForgetPassView:(OTTGeneralRegisterAndMissingView *)ottForgetPassView didFinishEnterWithRegisterInfo:(NSDictionary *)info;
-
+- (void)ottRegisterViewSelectImage:(OTTGeneralRegisterAndMissingView *)registerView;
+- (void)registerView:(OTTGeneralRegisterAndMissingView *)registerView failureWithInfo:(NSString *)failureInfo;
 @end
 
 @interface OTTGeneralRegisterAndMissingView : UIView

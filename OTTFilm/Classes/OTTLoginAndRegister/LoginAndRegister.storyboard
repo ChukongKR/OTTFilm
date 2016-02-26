@@ -303,6 +303,9 @@
                                         <include reference="pvU-yJ-Het"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="a5f-aq-dxf" id="0Fy-F6-oeb"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -380,6 +383,7 @@
                     <connections>
                         <outlet property="baseScrollView" destination="uy3-Rs-V2U" id="VeC-TW-JHM"/>
                         <outlet property="loginButton" destination="A00-4S-j3p" id="hau-CS-qLr"/>
+                        <outlet property="loginView" destination="mTj-ud-L0A" id="IqO-fc-qxj"/>
                         <outlet property="userAccountTextField" destination="fUJ-Wp-nZQ" id="dFQ-sZ-BZX"/>
                         <outlet property="userPassTextField" destination="h8d-Xp-Asd" id="9Sh-s4-G1a"/>
                     </connections>

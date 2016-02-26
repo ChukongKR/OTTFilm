@@ -9,18 +9,20 @@
 #import "OTTMainTableViewController.h"
 #import "UIBarButtonItem+Addtion.h"
 #import "OTTNetworkingTool.h"
+#import "OTTDataTool.h"
 #import "OTTFilmRank.h"
 #import "OTTFilmInfo.h"
 #import "OTTFilmDetailInfoTableViewController.h"
+#import <MBProgressHUD.h>
 
 @interface OTTFilmRankListTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *filmImageView;
-@property (weak, nonatomic) IBOutlet UILabel *filmTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *filmIntroLabel;
-@property (weak, nonatomic) IBOutlet UILabel *filmReleaseTimeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *filmImageView;    // 电影图片
+@property (weak, nonatomic) IBOutlet UILabel *filmTitleLabel;       // 电影标题
+@property (weak, nonatomic) IBOutlet UILabel *filmIntroLabel;       // 电影简介
+@property (weak, nonatomic) IBOutlet UILabel *filmReleaseTimeLabel; // 电影上映时间
 
-- (void)configureCellWith:(OTTFilmRank *)filmInfo;
+- (void)configureCellWith:(OTTFilmRank *)filmRank;
 
 @end
 @implementation OTTFilmRankListTableViewCell
@@ -39,25 +41,25 @@
         }
         
         NSString *cachePath = [OTTFILMIMAGECACHESDIRECTORY stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg",filmRank.name]];
-        if (![[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
-            [OTTNetworkingTool queryFilmInfoWithTitle:filmRank.name completion:^(OTTFilmInfo *filmInfo) {
-                dispatch_async(dispatch_get_global_queue(0, 0), ^{
-                    
-                    // Cache Image
-                    [[NSFileManager defaultManager] createDirectoryAtPath:OTTFILMIMAGECACHESDIRECTORY withIntermediateDirectories:YES attributes:nil error:nil];
-                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:filmInfo.images[@"medium"]]];
-                    [[NSFileManager defaultManager] createFileAtPath:cachePath contents:data attributes:nil];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
+            self.filmImageView.image = [UIImage imageWithContentsOfFile:cachePath];
+        }else {
+            [OTTNetworkingTool queryFilmInfoWithTitle:filmRank.name completion:^(id response) {
+                if (response) {
+                    OTTFilmInfo *filmInfo = response;
+                    NSURL *url = [NSURL URLWithString:filmInfo.images[@"medium"]];
+                    [OTTDataTool cacheImageWithURL:url atDirectory:cachePath];
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        self.filmImageView.image = [[UIImage alloc] initWithContentsOfFile:cachePath];
+                        self.filmImageView.image = [UIImage imageWithContentsOfFile:cachePath];
                     });
-                });
+                }
             }];
         }
-        self.filmImageView.image = [[UIImage alloc] initWithContentsOfFile:cachePath];
     }
 }
 
 @end
+
 
 @interface OTTMainTableViewController () 
 
@@ -78,16 +80,14 @@ static NSString *identifier = @"Main Cell";
 }
 
 - (void)loadData {
+    [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     [OTTNetworkingTool getFilmRankingInfoWithcompletion:^(id response) {
         if (response) {
             self.filmRankArray = response;
             [self.tableView reloadData];
+            [MBProgressHUD hideHUDForView:self.tableView animated:YES];
         }
     }];
-}
-
-- (IBAction)searchFilm:(UIBarButtonItem *)sender {
-    
 }
 
 #pragma mark - Initialization

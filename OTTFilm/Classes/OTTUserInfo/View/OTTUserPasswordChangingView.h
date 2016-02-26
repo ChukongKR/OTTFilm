@@ -11,6 +11,7 @@
 @protocol OTTUserPasswordChangingViewDelegate <NSObject>
 
 - (void)passwordChangingView:(OTTUserPasswordChangingView *)passView confirmChangeWithParams:(NSDictionary *)params;
+- (void)passwordChangingViewCancelChange:(OTTUserPasswordChangingView *)passView;
 
 @end
 

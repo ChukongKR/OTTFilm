@@ -29,6 +29,12 @@
     }
 }
 
+- (IBAction)cancelAndDismiss {
+    if ([self.delegate respondsToSelector:@selector(passwordChangingViewCancelChange:)]) {
+        [self.delegate passwordChangingViewCancelChange:self];
+    }
+}
+
 - (void)setHidden:(BOOL)hidden {
     [super setHidden:hidden];
     if (self.hidden == YES) {

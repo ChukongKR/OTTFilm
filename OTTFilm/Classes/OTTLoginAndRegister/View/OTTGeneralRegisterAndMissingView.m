@@ -11,19 +11,23 @@
 @implementation OTTGeneralRegisterAndMissingView
 
 - (void)cancelAndBack {
-    if ([self.delegate respondsToSelector:@selector(ottForgetPassViewDidCancelPasswordChanging:)]) {
-        [self.delegate ottForgetPassViewDidCancelPasswordChanging:self];
+    if ([self.delegate respondsToSelector:@selector(ottGeneralRegisterAndMissingViewDidCancelAndBack:)]) {
+        [self endEditing:YES];
+        
+        [self.delegate ottGeneralRegisterAndMissingViewDidCancelAndBack:self];
     }
 }
 
 - (void)commitAndBackWithVertification:(NSString *)ver phoneNum:(NSString *)num {
     if ([self.delegate respondsToSelector:@selector(ottForgetPassView:didFinishEnterWithVertification:phoneNum:)]) {
+        [self endEditing:YES];
         [self.delegate ottForgetPassView:self didFinishEnterWithVertification:ver phoneNum:num];
     }
 }
 
 - (void)commitAndBackWithRegisgerInfo:(NSDictionary *)info {
     if ([self.delegate respondsToSelector:@selector(ottForgetPassView:didFinishEnterWithRegisterInfo:)]) {
+        [self endEditing:YES];
         [self.delegate ottForgetPassView:self didFinishEnterWithRegisterInfo:info];
     }
 }
