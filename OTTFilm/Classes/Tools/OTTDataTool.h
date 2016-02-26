@@ -16,4 +16,6 @@
 
 + (NSArray *)getAllCities;
 
++ (void)cacheImageWithURL:(NSURL *)url atDirectory:(NSString *)directory;
+
 @end

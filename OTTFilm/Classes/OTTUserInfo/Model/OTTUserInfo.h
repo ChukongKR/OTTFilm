@@ -11,6 +11,10 @@
 @interface OTTUserInfo : NSObject
 
 @property (copy, nonatomic) NSString *userAccount;
-@property (copy, readonly, nonatomic) NSString *pass;
+@property (copy, nonatomic) NSString *userNickname;
+@property (copy, nonatomic) NSString *userMail;
+@property (copy, nonatomic) NSString *userPhoneNum;
+@property (strong, nonatomic) NSData *userHeadIcon;
+@property (assign, nonatomic, getter=isLogin) BOOL *login;
 
 @end

@@ -155,7 +155,6 @@
                     <navigationItem key="navigationItem" title="首页" id="e7L-Pr-Mua">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="QPy-8W-ht1">
                             <connections>
-                                <action selector="searchFilm:" destination="9Ej-Fc-03O" id="zdH-Af-h89"/>
                                 <segue destination="nDq-B5-lYt" kind="show" id="GqW-jB-mQG"/>
                             </connections>
                         </barButtonItem>
@@ -212,7 +211,7 @@
         <scene sceneID="kUU-qb-2Np">
             <objects>
                 <tableViewController storyboardIdentifier="FilmDetail" hidesBottomBarWhenPushed="YES" id="icO-CM-Jsx" customClass="OTTFilmDetailInfoTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="goN-Wt-ZMm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="goN-Wt-ZMm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -642,6 +641,6 @@
         <image name="red_heart" width="46" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6C1-Nh-Uiw"/>
+        <segue reference="cmR-53-aZU"/>
     </inferredMetricsTieBreakers>
 </document>

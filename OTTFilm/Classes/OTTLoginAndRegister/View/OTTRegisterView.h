@@ -10,4 +10,6 @@
 
 @interface OTTRegisterView : OTTGeneralRegisterAndMissingView
 
+- (void)setHeadIcon:(UIImage *)image;
+
 @end

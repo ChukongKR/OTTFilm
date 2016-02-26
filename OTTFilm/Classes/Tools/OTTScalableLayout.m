@@ -34,9 +34,9 @@
         CGFloat rotation = ABS(distance/250);
 
         if (distance > -375 && distance < 0) {
-            attribute.transform3D = CATransform3DMakeRotation(rotation * M_PI/6, 0, 1, -0.1);
+            attribute.transform3D = CATransform3DMakeRotation(rotation * -M_PI/6, 0, 3, 0.5);
         }else if (distance < 375 && distance > 0) {
-            attribute.transform3D = CATransform3DMakeRotation(rotation * -M_PI/6, 0, 1, -0.1);
+            attribute.transform3D = CATransform3DMakeRotation(rotation * M_PI/6, 0, 3, 0.5);
         }
     }
     return allAttributes;

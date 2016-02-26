@@ -8,6 +8,7 @@
 
 #import "OTTEventCollectionViewCell.h"
 #import "OTTUSBOXFilmInfo.h"
+
 @interface OTTEventCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *filmImageView;
 @property (weak, nonatomic) IBOutlet UILabel *categoryTitle;

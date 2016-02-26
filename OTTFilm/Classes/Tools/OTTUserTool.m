@@ -16,12 +16,18 @@
 @property (copy, nonatomic, readwrite) NSString *userName;
 @property (copy, nonatomic, readwrite) NSString *userMail;
 @property (copy, nonatomic, readwrite) NSString *userPhoneNum;
+@property (copy, nonatomic, readwrite) NSString *userNickname;
+@property (strong, nonatomic, readwrite) NSData *userHeadIcon;
 
 @property (assign, nonatomic, getter=isLogin) BOOL login;
+@property (copy, nonatomic) NSString *tempAccount;
 
 @end
 @implementation OTTUserTool
 
+/**
+ *  全局单例
+ */
 static OTTUserTool *_sharedUserTool = nil;
 + (instancetype)sharedOTTUserTool {
     static dispatch_once_t onceToken;
@@ -38,9 +44,9 @@ static OTTUserTool *_sharedUserTool = nil;
 + (BOOL)userRegisterWithUserInfo:(NSDictionary *)userInfo {
     FMDatabase *database = [OTTDatabaseTool sharedDatabase];
     
-    [database executeUpdate:@"create table if not exists OTTUser (id integer primary key, account text, pass text, phoneNum text, mail text)"];
+    [database executeUpdate:@"create table if not exists OTTUser (id integer primary key, account text unique, pass text, phoneNum text unique, mail text, nickname text, headIcon blob)"];
     
-    BOOL result = [database executeUpdateWithFormat:@"insert into OTTUser (account, pass, phoneNum, mail) values(%@, %@, %@, %@)", userInfo[@"account"], [userInfo[@"pass"] md5String], userInfo[@"phoneNum"], userInfo[@"mail"]];
+    BOOL result = [database executeUpdateWithFormat:@"insert into OTTUser (account, pass, phoneNum, mail, nickName, headIcon) values(%@, %@, %@, %@, %@, %@)", userInfo[@"account"], [userInfo[@"pass"] md5String], userInfo[@"phoneNum"], userInfo[@"mail"], userInfo[@"nickname"], userInfo[@"headIcon"]];
     
     [database close];
     return result;
@@ -57,7 +63,9 @@ static OTTUserTool *_sharedUserTool = nil;
             success = YES;
             NSString *mail = [result stringForColumn:@"mail"];
             NSString *phoneNum = [result stringForColumn:@"phoneNum"];
-            info = @{@"account":account, @"pass":password, @"mail":mail, @"phoneNum":phoneNum};
+            NSString *nickname = [result stringForColumn:@"nickname"];
+            NSData *headIcon = [result dataForColumn:@"headIcon"];
+            info = @{@"account":account, @"pass":password, @"mail":mail, @"phoneNum":phoneNum, @"nickname":nickname, @"headIcon":headIcon};
         }
     }
     [database close];
@@ -71,6 +79,8 @@ static OTTUserTool *_sharedUserTool = nil;
         [[self sharedOTTUserTool] setUserName:result[@"account"]];
         [[self sharedOTTUserTool] setUserMail:result[@"mail"]];
         [[self sharedOTTUserTool] setUserPhoneNum:result[@"phoneNum"]];
+        [[self sharedOTTUserTool] setUserNickname:result[@"nickname"]];
+        [[self sharedOTTUserTool] setUserHeadIcon:result[@"headIcon"]];
         [[self sharedOTTUserTool] setLogin:YES];
         return YES;
     }
@@ -78,11 +88,17 @@ static OTTUserTool *_sharedUserTool = nil;
 }
 
 + (BOOL)userUpdatePasswordWith:(NSDictionary *)dict {
+    if (!dict[@"pass"] && [[self sharedOTTUserTool] tempAccount]) {
+        NSMutableDictionary *mDict = [NSMutableDictionary dictionaryWithDictionary:dict];
+        mDict[@"pass"] = [[self sharedOTTUserTool] tempAccount];
+        dict = [mDict copy];
+    }
     NSDictionary *result = [self queryAccessWithAccount:[[self sharedOTTUserTool] userName] pass:dict[@"originalPass"]];
     if (result) {
         FMDatabase *databse = [OTTDatabaseTool sharedDatabase];
         BOOL success = [databse executeUpdate:@"update OTTUser set pass = ? where account = ?", [dict[@"newPass"] md5String], result[@"account"]];
         [databse close];
+        [[self sharedOTTUserTool] setTempAccount:nil];
         return success;
     }
     return NO;
@@ -92,7 +108,15 @@ static OTTUserTool *_sharedUserTool = nil;
     FMDatabase *database = [OTTDatabaseTool sharedDatabase];
     BOOL success = [database executeUpdate:@"update OTTUser set phoneNum = ? where account = ?; \
                                              update OTTUser set mail = ? where account = ?      \
-                    ", info[@"phoneNum"], [[self sharedOTTUserTool] userName], info[@"mail"], [[self sharedOTTUserTool] userName]];
+                                             update OTTUser set nickname = ? where account = ?  \
+                                             update OTTUser set headIcon = ? where account = ?  \
+                    ", info[@"phoneNum"], [[self sharedOTTUserTool] userName], info[@"mail"], [[self sharedOTTUserTool] userName], info[@"nickname"], [[self sharedOTTUserTool] userName], info[@"headIcon"], [[self sharedOTTUserTool] userName]];
+    if (success) {
+        [[self sharedOTTUserTool] setUserPhoneNum:info[@"phoneNum"]];
+        [[self sharedOTTUserTool] setUserMail:info[@"mail"]];
+        [[self sharedOTTUserTool] setUserNickname:info[@"nickname"]];
+        [[self sharedOTTUserTool] setUserHeadIcon:info[@"headIcon"]];
+    }
     [database close];
     return success;
 }
@@ -100,8 +124,24 @@ static OTTUserTool *_sharedUserTool = nil;
 + (BOOL)userLogout {
     if ([[self sharedOTTUserTool] isLogin] == YES) {
         [[self sharedOTTUserTool] setLogin:NO];
+        [[self sharedOTTUserTool] setUserName:nil];
+        [[self sharedOTTUserTool] setUserNickname:nil];
+        [[self sharedOTTUserTool] setUserMail:nil];
+        [[self sharedOTTUserTool] setUserPhoneNum:nil];
     }
     return ![[self sharedOTTUserTool] isLogin];
+}
+
++ (BOOL)userQueryAccessForChangingPassWithPhoneNum:(NSString *)phone {
+    FMDatabase *database = [OTTDatabaseTool sharedDatabase];
+    
+    FMResultSet *result = [database executeQuery:@"select * from OTTUser where phoneNum = ?", phone];
+    while ([result next]) {
+        NSString *username = [result stringForColumn:@"account"];
+        [[self sharedOTTUserTool] setTempAccount:username];
+        return YES;
+    }
+    return NO;
 }
 
 + (NSString *)favoriteListString {
@@ -152,7 +192,7 @@ static OTTUserTool *_sharedUserTool = nil;
         OTTFilmInfo *filmInfo = [[OTTFilmInfo alloc] init];
         filmInfo.title = [result stringForColumn:@"filmName"];
         NSData *data = [result dataForColumn:@"filmImage"];
-        filmInfo.images = @{@"small":data};
+        filmInfo.images = data ? @{@"small":data} : nil;
         [resultArray addObject:filmInfo];
     }
     

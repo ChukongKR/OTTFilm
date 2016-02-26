@@ -11,6 +11,7 @@
 #import "OTTFilmDetailInfoTableViewController.h"
 #import "OTTNetworkingTool.h"
 #import "OTTUSBOXFilmInfo.h"
+#import <MBProgressHUD.h>
 @interface OTTEventCollectionViewController ()
 
 @property (strong, nonatomic) NSArray<OTTUSBOXFilmInfo *> *allUSBoxs;
@@ -38,13 +39,15 @@ static NSString * const reuseIdentifier = @"EventCell";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (void)loadData {
+    [MBProgressHUD showHUDAddedTo:self.collectionView animated:YES];
     [OTTNetworkingTool getUS_BOXFilmInfosWithCompletion:^(id response) {
         self.allUSBoxs = response;
         [self.collectionView reloadData];
+        [MBProgressHUD hideHUDForView:self.collectionView animated:YES];
     }];
 }
 

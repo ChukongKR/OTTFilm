@@ -10,6 +10,7 @@
 #import "OTTUserTool.h"
 #import "OTTUserPasswordChangingView.h"
 #import "NSString+Addtion.h"
+#import <MBProgressHUD.h>
 
 @interface OTTUserConfigurationViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, OTTUserPasswordChangingViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *imagePickerButton;
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (strong, nonatomic) OTTUserPasswordChangingView *passwordChangingView;
 
+@property (assign, nonatomic, getter=isShown) BOOL shown;
 @end
 
 @implementation OTTUserConfigurationViewController
@@ -29,7 +31,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -43,16 +45,22 @@
     if (!_passwordChangingView) {
         _passwordChangingView = [[[NSBundle mainBundle] loadNibNamed:@"OTTUserPassChangingView" owner:nil options:nil] lastObject];
         _passwordChangingView.delegate = self;
-        self.passwordChangingView.frame = CGRectMake((OTT_WINDOW_WIDTH-240)/2, self.phoneTextField.frame.origin.y + 70, 240, 210);
+        self.passwordChangingView.frame = CGRectMake(20, OTT_WINDOW_HEIGHT + 210, OTT_WINDOW_WIDTH-40, OTT_WINDOW_HEIGHT/3);
         self.passwordChangingView.hidden = YES;
     }
     return _passwordChangingView;
 }
 
 - (void)showUserInfo {
-    self.nickNameTextField.text = @"123";
+    UIImage *image = [UIImage imageWithData:[[OTTUserTool sharedOTTUserTool] userHeadIcon]];
+    [self.imagePickerButton setImage:image forState:UIControlStateNormal];
+    self.nickNameTextField.text = [[OTTUserTool sharedOTTUserTool] userNickname];
     self.mailTextField.text = [[OTTUserTool sharedOTTUserTool] userMail];
     self.phoneTextField.text = [[OTTUserTool sharedOTTUserTool] userPhoneNum];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 #pragma mark - IBAction
@@ -61,9 +69,15 @@
 }
 
 - (IBAction)confirmConfiguration {
+    if (self.phoneTextField.text.length == 0 || self.mailTextField.text.length == 0) {
+        return;
+    }
+    NSData *data = UIImageJPEGRepresentation(self.imagePickerButton.currentImage, 1.0);
     NSDictionary *info = @{
                            @"phoneNum":self.phoneTextField.text,
-                           @"mail":self.mailTextField.text
+                           @"mail":self.mailTextField.text,
+                           @"nickname":self.nickNameTextField.text,
+                           @"headIcon":data
                            };
     if ([OTTUserTool userUpdateInfoWith:info]) {
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -72,8 +86,20 @@
     }
 }
 
-- (IBAction)displayPasswordChangingView {
-    self.passwordChangingView.hidden = !self.passwordChangingView.hidden;
+- (IBAction)displayPasswordChangingView:(UIButton *)sender {
+    sender.enabled = NO;
+    self.shown = !self.isShown;
+    if (self.isShown) {
+        self.passwordChangingView.hidden = NO;
+    }
+    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.7 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        CGRect frame = self.passwordChangingView.frame;
+        frame.origin.y = self.isShown? OTT_WINDOW_HEIGHT/3 : OTT_WINDOW_HEIGHT + 210;
+        self.passwordChangingView.frame = frame;
+    } completion:^(BOOL finished) {
+        sender.enabled = YES;
+        self.passwordChangingView.hidden = !self.isShown;
+    }];
 }
 
 - (IBAction)pickUserHeadImage {
@@ -95,11 +121,13 @@
 #pragma mark - OTTUserPassChangingDelegate
 - (void)passwordChangingView:(OTTUserPasswordChangingView *)passView confirmChangeWithParams:(NSDictionary *)params {
     if ([OTTUserTool userUpdatePasswordWith:params]) {
-        [self displayPasswordChangingView];
+        [self displayPasswordChangingView:nil];
     }
 }
 
-
+- (void)passwordChangingViewCancelChange:(OTTUserPasswordChangingView *)passView {
+    [self displayPasswordChangingView:nil];
+}
 
 
 

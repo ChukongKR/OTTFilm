@@ -33,4 +33,10 @@
     return array;
 }
 
++ (void)cacheImageWithURL:(NSURL *)url atDirectory:(NSString *)directory {
+    [[NSFileManager defaultManager] createDirectoryAtPath:OTTFILMIMAGECACHESDIRECTORY withIntermediateDirectories:YES attributes:nil error:nil];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    [[NSFileManager defaultManager] createFileAtPath:directory contents:data attributes:nil];
+}
+
 @end

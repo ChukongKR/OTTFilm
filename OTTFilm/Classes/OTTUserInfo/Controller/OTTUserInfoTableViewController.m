@@ -22,8 +22,9 @@
     
     if ([OTTUserTool isLogin]) {
         self.loginButton.hidden = YES;
-        self.headImageView.image = [UIImage imageNamed:@"08353"];
-        self.userNameLabel.text = [OTTUserTool sharedOTTUserTool].userName;
+        NSData *headIconData = [OTTUserTool sharedOTTUserTool].userHeadIcon;
+        self.headImageView.image = [UIImage imageWithData:headIconData];
+        self.userNameLabel.text = [OTTUserTool sharedOTTUserTool].userNickname;
         self.userNicknameLabel.text = [OTTUserTool sharedOTTUserTool].userMail;
     }else {
         self.headImageView.image = nil;
@@ -61,8 +62,6 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row == 1) {
         cell.detailTextLabel.text = @"地区";
-    }else {
-        
     }
 }
 

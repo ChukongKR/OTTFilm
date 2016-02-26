@@ -47,4 +47,26 @@
     }
 }
 
+- (void)failureAnimationWithDuration:(NSTimeInterval)duration rate:(CGFloat)rate {
+    rate = MIN(MAX(rate, 0.5), 1);
+    CGFloat distance = rate * 30;
+    [UIView animateKeyframesWithDuration:duration delay:0.0 options:0 animations:^{
+        [UIView addKeyframeWithRelativeStartTime:0.0 relativeDuration:0.2 animations:^{
+            self.frame = (CGRect){self.frame.origin.x - distance/2, self.frame.origin.y, self.frame.size};
+        }];
+        [UIView addKeyframeWithRelativeStartTime:0.2 relativeDuration:0.2 animations:^{
+            self.frame = (CGRect){self.frame.origin.x + distance, self.frame.origin.y, self.frame.size};
+        }];
+        [UIView addKeyframeWithRelativeStartTime:0.4 relativeDuration:0.2 animations:^{
+            self.frame = (CGRect){self.frame.origin.x - distance, self.frame.origin.y, self.frame.size};
+        }];
+        [UIView addKeyframeWithRelativeStartTime:0.6 relativeDuration:0.2 animations:^{
+            self.frame = (CGRect){self.frame.origin.x + distance, self.frame.origin.y, self.frame.size};
+        }];
+        [UIView addKeyframeWithRelativeStartTime:0.8 relativeDuration:0.2 animations:^{
+            self.frame = (CGRect){self.frame.origin.x - distance/2, self.frame.origin.y, self.frame.size};
+        }];
+    } completion:nil];
+}
+
 @end

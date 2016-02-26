@@ -18,8 +18,6 @@
 #pragma mark - UIViewLifeCycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -34,10 +32,9 @@
 }
 
 - (IBAction)logout {
-    [OTTUserTool userLogout];
-    
     UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        [OTTUserTool userLogout];
         [self.navigationController popViewControllerAnimated:YES];
     }];
     
@@ -80,7 +77,5 @@
     }
 }
 
-#pragma mark - Private Methods
-#pragma mark - Initialization
 
 @end
