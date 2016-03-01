@@ -54,7 +54,6 @@
 }
 
 - (void)dealloc {
-    
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -68,21 +67,19 @@
 }
 
 - (void)loadData {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:OTT_KEY_WINDOW animated:YES];
     if (self.currentIndex == 0) {
-        [OTTNetworkingTool getPresentingFilmInfosWithArea:[self encodingString] completion:^(id response) {
+        [OTTNetworkingTool getPresentingFilmInfosWithArea:self.currentArea completion:^(id response) {
             if ([response isKindOfClass:[NSArray class]]) {
-                
                 self.allPresentingFilmInfos = response;
                 [self.presentingTableView setItems:self.allPresentingFilmInfos];
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                [MBProgressHUD hideHUDForView:OTT_KEY_WINDOW animated:YES];
             }
         }];
     }else {
-        [OTTNetworkingTool getSoonPresentingFilmInfosWithArea:[self encodingString] completion:^(id response) {
+        [OTTNetworkingTool getSoonPresentingFilmInfosWithArea:self.currentArea completion:^(id response) {
             self.allSoonPreFilmInfos = response;
-            [self.soonPresentingTableView setItems:self.allSoonPreFilmInfos];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self.soonPresentingTableView setItems:self.allSoonPreFilmInfos];[MBProgressHUD hideHUDForView:[UIApplication sharedApplication].keyWindow animated:YES];
 
         }];
     }
@@ -154,10 +151,6 @@
     [self.presentingTableView removeFromSuperview];
     [self.soonPresentingTableView removeFromSuperview];
     [self loadData];
-}
-
-- (NSString *)encodingString {
-    return [self.currentArea stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet letterCharacterSet]];
 }
 
 - (void)setCurrentIndex:(NSInteger)currentIndex {

@@ -109,7 +109,7 @@ static OTTNetworkingTool *_networkingTool = nil;
     if (![self sharedNetworkingTool]) {
         return;
     }
-    NSString *url = [NSString stringWithFormat:@"http://op.juhe.cn/onebox/movie/pmovie?dtype=&city=%@&key=359c584bde6f2d1f28f321ffed0f8ba0", area];
+    NSString *url = [NSString stringWithFormat:@"http://op.juhe.cn/onebox/movie/pmovie?dtype=&city=%@&key=359c584bde6f2d1f28f321ffed0f8ba0", [area stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet letterCharacterSet]]];
     [[[self sharedNetworkingTool] manager] GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         completion(responseObject[@"result"]);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
