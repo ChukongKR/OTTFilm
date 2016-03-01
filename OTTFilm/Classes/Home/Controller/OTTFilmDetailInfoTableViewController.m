@@ -21,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet OTTFilmDetailInfoTableViewHeadCell *headCell;
 @property (weak, nonatomic) IBOutlet OTTFilmDetailInfoTableViewBottomCell *bottomCell;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *heartButton;
 @end
 
@@ -104,9 +103,8 @@
 - (BOOL)updateFavoriteList {
     if (!self.heartButton.selected) {
         return [OTTUserTool addFilmToFavoriteList:self.filmInfo];
-    }else {
-        return [OTTUserTool removeFilmFromFavoriteList:self.filmInfo];
     }
+    return [OTTUserTool removeFilmFromFavoriteList:self.filmInfo];
 }
 
 #pragma mark - IBAction
@@ -155,6 +153,13 @@
     }
 }
 
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
 
 @end

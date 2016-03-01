@@ -5,6 +5,60 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
+        <!--Welcome View Controller-->
+        <scene sceneID="JME-Wi-jSp">
+            <objects>
+                <viewController storyboardIdentifier="Welcome" id="ndQ-WQ-gTG" customClass="OTTWelcomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G2S-6M-wpV"/>
+                        <viewControllerLayoutGuide type="bottom" id="PHs-A3-y3M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rUX-hL-clz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywb-81-pjZ">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ywb-81-pjZ" firstAttribute="leading" secondItem="rUX-hL-clz" secondAttribute="leading" id="39D-RT-cP4"/>
+                            <constraint firstItem="PHs-A3-y3M" firstAttribute="top" secondItem="ywb-81-pjZ" secondAttribute="bottom" id="GWY-Gf-cGM"/>
+                            <constraint firstItem="ywb-81-pjZ" firstAttribute="top" secondItem="rUX-hL-clz" secondAttribute="top" id="KWP-ql-kdr"/>
+                            <constraint firstAttribute="trailing" secondItem="ywb-81-pjZ" secondAttribute="trailing" id="lzR-zk-gC3"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ywb-81-pjZ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GWY-Gf-cGM"/>
+                                <exclude reference="39D-RT-cP4"/>
+                                <exclude reference="KWP-ql-kdr"/>
+                                <exclude reference="lzR-zk-gC3"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ywb-81-pjZ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GWY-Gf-cGM"/>
+                                <include reference="39D-RT-cP4"/>
+                                <include reference="KWP-ql-kdr"/>
+                                <include reference="lzR-zk-gC3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="welcomeScrollView" destination="ywb-81-pjZ" id="MgD-Mn-Ruj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOq-pr-vAf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-571.5" y="411.75"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mwP-NC-FgU">
             <objects>

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class OTTUSBOXFilmInfo;
+@class OTTFilmInfo;
 @interface OTTEventCollectionViewCell : UICollectionViewCell
 
-- (void)setUsFilmInfo:(OTTUSBOXFilmInfo *)usFilmInfo;
+- (void)setFilmInfo:(OTTFilmInfo *)filmInfo;
 
 @end

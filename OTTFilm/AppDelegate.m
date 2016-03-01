@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <SMS_SDK/SMSSDK.h>
+#import "OTTWelcomeViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -21,9 +22,8 @@
     if (![[NSUserDefaults standardUserDefaults] valueForKey:@"isFirstOpen"] || [[[NSUserDefaults standardUserDefaults] valueForKey:@"isFirstOpen"] isEqual:@NO]) {
         
         self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        
         //  Welcome Page
-        self.window.rootViewController = [[UIViewController alloc] init];
+        self.window.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Welcome"];
         
         [self.window makeKeyAndVisible];
         [[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"isFirstOpen"];

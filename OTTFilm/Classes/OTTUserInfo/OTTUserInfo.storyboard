@@ -292,27 +292,16 @@
         <scene sceneID="vcP-hQ-VtO">
             <objects>
                 <tableViewController hidesBottomBarWhenPushed="YES" id="3tg-Jf-Ib2" customClass="OTTUserFavoriteTableViewController" sceneMemberID="viewController">
-<<<<<<< HEAD
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vlg-mZ-ogv">
-=======
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vlg-mZ-ogv">
->>>>>>> dev
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteCell" id="Ez5-5D-34c">
-<<<<<<< HEAD
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ez5-5D-34c" id="1NL-k0-2cu">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-=======
                                 <rect key="frame" x="0.0" y="92" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ez5-5D-34c" id="1NL-k0-2cu">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
->>>>>>> dev
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -769,7 +758,7 @@
         <scene sceneID="cWo-Vv-p9P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8hZ-t0-yS7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="esX-b6-oo7"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="tabbar_me" id="esX-b6-oo7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYS-fw-IiL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -805,5 +794,6 @@
     </scenes>
     <resources>
         <image name="08353" width="640" height="640"/>
+        <image name="tabbar_me" width="23" height="23"/>
     </resources>
 </document>

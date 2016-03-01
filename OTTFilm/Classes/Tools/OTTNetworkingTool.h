@@ -12,7 +12,7 @@ typedef void(^OTTCompletionBlock)(id response);
 typedef void(^OTTFailureBlock)(NSError *error);
 @interface OTTNetworkingTool : NSObject
 
-+ (void)getFilmRankingInfoWithcompletion:(OTTCompletionBlock)completion;
++ (void)getFilmRankingInfoWithcompletion:(OTTCompletionBlock)completion country:(NSString *)country;
 
 + (void)queryFilmInfoWithID:(NSString *)movieID completion:(OTTCompletionBlock)completion;
 + (void)queryFilmInfoWithTitle:(NSString *)movieTitle completion:(OTTCompletionBlock)completion;
@@ -23,5 +23,8 @@ typedef void(^OTTFailureBlock)(NSError *error);
 + (void)getSoonPresentingFilmInfosWithArea:(NSString *)area completion:(OTTCompletionBlock)completion;
 
 + (void)getUS_BOXFilmInfosWithCompletion:(OTTCompletionBlock)completion;
+
++ (void)getTop20FilmInfosWithCompletion:(OTTCompletionBlock)completion;
++ (void)getMoreTopFilmInfosWithCompletion:(OTTCompletionBlock)completion;
 
 @end

@@ -10,4 +10,6 @@
 
 @interface OTTScalableLayout : UICollectionViewFlowLayout
 
+- (void)updateLayoutDirectionVertically:(BOOL)vertical;
+
 @end
