@@ -758,7 +758,7 @@
         <scene sceneID="cWo-Vv-p9P">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8hZ-t0-yS7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="esX-b6-oo7"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="tabbar_me" id="esX-b6-oo7"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xYS-fw-IiL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -794,5 +794,6 @@
     </scenes>
     <resources>
         <image name="08353" width="640" height="640"/>
+        <image name="tabbar_me" width="23" height="23"/>
     </resources>
 </document>

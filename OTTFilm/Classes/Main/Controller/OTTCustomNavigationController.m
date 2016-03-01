@@ -17,8 +17,9 @@
 + (void)load {
     [super load];
     
-    //NavigationBar setting
+    // NavigationBar setting
     UINavigationBar *navBar = [UINavigationBar appearance];
+    
     [navBar setBackgroundImage:[UIImage imageNamed:@"navBack"] forBarMetrics:UIBarMetricsDefault];
     [navBar setTintColor:[UIColor whiteColor]];
     navBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};

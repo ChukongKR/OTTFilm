@@ -10,7 +10,7 @@
         <scene sceneID="Pt1-cJ-HTn">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0yF-ru-He1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="影院" id="y5Q-de-ags"/>
+                    <tabBarItem key="tabBarItem" title="影院" image="video" id="y5Q-de-ags"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y5O-iV-zd4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -254,4 +254,7 @@
             <point key="canvasLocation" x="2346.75" y="-19.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="video" width="640" height="640"/>
+    </resources>
 </document>

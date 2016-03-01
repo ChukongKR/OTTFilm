@@ -39,4 +39,24 @@
     [[NSFileManager defaultManager] createFileAtPath:directory contents:data attributes:nil];
 }
 
+static NSMutableDictionary *_imageCachingDict = nil;
++ (void)cacheImage:(NSString *)url {
+    if (!_imageCachingDict) {
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _imageCachingDict = [NSMutableDictionary dictionary];
+        });
+    }
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:url]];
+    UIImage *image = [UIImage imageWithData:data];
+    _imageCachingDict[url] = image;
+}
+
++ (UIImage *)cachedImageWithURL:(NSString *)url {
+    if (!_imageCachingDict || !_imageCachingDict[url]) {
+        return nil;
+    }
+    return _imageCachingDict[url];
+}
+
 @end

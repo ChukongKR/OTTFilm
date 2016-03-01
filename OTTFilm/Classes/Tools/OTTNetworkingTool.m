@@ -15,6 +15,7 @@
 #import "OTTDataTool.h"
 @interface OTTNetworkingTool()
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
+@property (assign, nonatomic) NSInteger currentCount;
 @end
 @implementation OTTNetworkingTool
 static OTTNetworkingTool *_networkingTool = nil;
@@ -40,7 +41,7 @@ static OTTNetworkingTool *_networkingTool = nil;
 }
 
 + (void)queryFilmInfoWithID:(NSString *)movieID completion:(OTTCompletionBlock)completion {
-    NSString *url = [NSString stringWithFormat:DOUBAN_MOVIE_SUBJECT(movieID)];
+    NSString *url = [NSString stringWithFormat:DOUBAN_MOVIE_SUBJECT([movieID stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet letterCharacterSet]])];
     [[[self sharedNetworkingTool] manager] GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (responseObject) {
             if (![responseObject[@"count"] isEqual:@0]) {
@@ -92,8 +93,8 @@ static OTTNetworkingTool *_networkingTool = nil;
     }];
 }
 
-+ (void)getFilmRankingInfoWithcompletion:(OTTCompletionBlock)completion {
-    NSString *url = @"http://v.juhe.cn/boxoffice/rank?area=CN&dtype=json&key=0a18ce71305a07d9a500d0f431ccb239";
++ (void)getFilmRankingInfoWithcompletion:(OTTCompletionBlock)completion country:(NSString *)country {
+    NSString *url = [NSString stringWithFormat:@"http://v.juhe.cn/boxoffice/rank?area=%@&dtype=json&key=0a18ce71305a07d9a500d0f431ccb239", country];
     [self parseJsonWithAFNetworkingURL:url completion:^(id response) {
         if ([response isKindOfClass:[NSDictionary class]]) {
             NSArray *filmRankArray = [OTTDataTool parseArrayWithArray:response[@"result"] kind:[OTTFilmRank class]];
@@ -139,6 +140,36 @@ static OTTNetworkingTool *_networkingTool = nil;
             completion(result);
         }
     } failure:nil];
+}
+
++ (void)getTop20FilmInfosWithCompletion:(OTTCompletionBlock)completion withCount:(NSInteger)count{
+    __block NSInteger num = [[self sharedNetworkingTool] currentCount];
+    NSString *url = [NSString stringWithFormat:@"%@?count=%ld&start=%ld", DOUBAN_TOP250, count, num];
+    [[[self sharedNetworkingTool] manager] GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (responseObject) {
+            NSArray *result = [OTTDataTool parseArrayWithArray:responseObject[@"subjects"] kind:[OTTFilmInfo class]];
+            completion(result);
+            if (num <= 100) {
+                num += 20;
+            }
+        }
+    } failure:nil];
+}
+
++ (void)getTop20FilmInfosWithCompletion:(OTTCompletionBlock)completion {
+    [self getTop20FilmInfosWithCompletion:^(id response) {
+        if (response) {
+            completion(response);
+        }
+    } withCount:20];
+}
+
++ (void)getMoreTopFilmInfosWithCompletion:(OTTCompletionBlock)completion {
+    [self getTop20FilmInfosWithCompletion:^(id response) {
+        if (response) {
+            completion(response);
+        }
+    } withCount:20];
 }
 
 @end

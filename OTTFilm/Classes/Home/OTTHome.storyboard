@@ -6,7 +6,7 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--首页-->
+        <!--Main Table View Controller-->
         <scene sceneID="5SB-zg-xDF">
             <objects>
                 <tableViewController id="9Ej-Fc-03O" customClass="OTTMainTableViewController" sceneMemberID="viewController">
@@ -14,9 +14,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="m1w-Uc-3gM">
+                            <rect key="frame" x="0.0" y="64" width="600" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MX3-hl-X4v">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="9Ej-Fc-03O" id="Hay-t4-unq"/>
+                                    </connections>
+                                </scrollView>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XQ9-t0-XEG">
+                                    <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                </activityIndicatorView>
+                                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="kXh-hN-KDf">
+                                    <rect key="frame" x="-19" y="-18" width="39" height="37"/>
+                                    <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="currentPageIndicatorTintColor" red="0.3411764706" green="0.58823529409999997" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </pageControl>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="MX3-hl-X4v" secondAttribute="trailing" id="5Eo-wk-Je5"/>
+                                <constraint firstItem="XQ9-t0-XEG" firstAttribute="centerY" secondItem="m1w-Uc-3gM" secondAttribute="centerY" id="6WD-nX-KYT"/>
+                                <constraint firstItem="MX3-hl-X4v" firstAttribute="leading" secondItem="m1w-Uc-3gM" secondAttribute="leading" id="8NT-ZH-m4Z"/>
+                                <constraint firstItem="kXh-hN-KDf" firstAttribute="centerX" secondItem="m1w-Uc-3gM" secondAttribute="centerX" id="XDW-es-N8p"/>
+                                <constraint firstItem="MX3-hl-X4v" firstAttribute="top" secondItem="m1w-Uc-3gM" secondAttribute="top" id="Ydh-U4-chE"/>
+                                <constraint firstItem="XQ9-t0-XEG" firstAttribute="centerX" secondItem="m1w-Uc-3gM" secondAttribute="centerX" id="Z7N-86-Cp3"/>
+                                <constraint firstAttribute="bottom" secondItem="MX3-hl-X4v" secondAttribute="bottom" id="awk-Px-Dil"/>
+                                <constraint firstAttribute="bottom" secondItem="kXh-hN-KDf" secondAttribute="bottom" constant="8" id="w8o-gw-BV8">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="-8"/>
+                                </constraint>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="MX3-hl-X4v"/>
+                                    <exclude reference="XQ9-t0-XEG"/>
+                                    <exclude reference="kXh-hN-KDf"/>
+                                </mask>
+                                <mask key="constraints">
+                                    <exclude reference="6WD-nX-KYT"/>
+                                    <exclude reference="Z7N-86-Cp3"/>
+                                    <exclude reference="XDW-es-N8p"/>
+                                    <exclude reference="w8o-gw-BV8"/>
+                                    <exclude reference="5Eo-wk-Je5"/>
+                                    <exclude reference="8NT-ZH-m4Z"/>
+                                    <exclude reference="Ydh-U4-chE"/>
+                                    <exclude reference="awk-Px-Dil"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="subviews">
+                                    <include reference="MX3-hl-X4v"/>
+                                    <include reference="XQ9-t0-XEG"/>
+                                    <include reference="kXh-hN-KDf"/>
+                                </mask>
+                                <mask key="constraints">
+                                    <include reference="6WD-nX-KYT"/>
+                                    <include reference="Z7N-86-Cp3"/>
+                                    <include reference="XDW-es-N8p"/>
+                                    <include reference="w8o-gw-BV8"/>
+                                    <include reference="5Eo-wk-Je5"/>
+                                    <include reference="8NT-ZH-m4Z"/>
+                                    <include reference="Ydh-U4-chE"/>
+                                    <include reference="awk-Px-Dil"/>
+                                </mask>
+                            </variation>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Main Cell" rowHeight="120" id="x0G-9V-iru" customClass="OTTFilmRankListTableViewCell">
-                                <rect key="frame" x="0.0" y="92" width="600" height="120"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoxCell" rowHeight="120" id="x0G-9V-iru" customClass="OTTFilmRankListTableViewCell">
+                                <rect key="frame" x="0.0" y="220" width="600" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0G-9V-iru" id="B3n-aM-BXP">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="119.5"/>
@@ -28,7 +95,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grh-0v-tW7">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rank" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grh-0v-tW7">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -70,8 +137,8 @@
                                         <constraint firstAttribute="bottom" secondItem="uIM-dV-tpM" secondAttribute="bottom" constant="8" id="6CN-tc-qao"/>
                                         <constraint firstItem="tQC-28-mn1" firstAttribute="centerY" secondItem="uIM-dV-tpM" secondAttribute="centerY" id="7a2-MA-mSC"/>
                                         <constraint firstAttribute="trailing" secondItem="grh-0v-tW7" secondAttribute="trailing" constant="8" id="DAQ-H9-AnO"/>
+                                        <constraint firstItem="Cba-ln-rAi" firstAttribute="centerY" secondItem="tQC-28-mn1" secondAttribute="centerY" id="Fp7-cY-033"/>
                                         <constraint firstItem="uup-dP-I9P" firstAttribute="leading" secondItem="uIM-dV-tpM" secondAttribute="trailing" constant="8" id="Ibu-ls-dDk"/>
-                                        <constraint firstItem="Cba-ln-rAi" firstAttribute="top" secondItem="tQC-28-mn1" secondAttribute="top" id="PWn-su-iLT"/>
                                         <constraint firstItem="uIM-dV-tpM" firstAttribute="leading" secondItem="B3n-aM-BXP" secondAttribute="leading" constant="8" id="RbV-6O-GZB"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Cba-ln-rAi" secondAttribute="trailing" constant="8" id="WD7-ls-W03"/>
                                         <constraint firstItem="tQC-28-mn1" firstAttribute="top" secondItem="uup-dP-I9P" secondAttribute="bottom" constant="8" id="a0m-6D-Wk5"/>
@@ -92,7 +159,7 @@
                                             <exclude reference="Cba-ln-rAi"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="PWn-su-iLT"/>
+                                            <exclude reference="Fp7-cY-033"/>
                                             <exclude reference="WD7-ls-W03"/>
                                             <exclude reference="aAe-Pr-oVD"/>
                                             <exclude reference="4gc-5e-oJT"/>
@@ -119,7 +186,7 @@
                                             <include reference="Cba-ln-rAi"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="PWn-su-iLT"/>
+                                            <include reference="Fp7-cY-033"/>
                                             <include reference="WD7-ls-W03"/>
                                             <include reference="aAe-Pr-oVD"/>
                                             <include reference="4gc-5e-oJT"/>
@@ -152,13 +219,34 @@
                             <outlet property="delegate" destination="9Ej-Fc-03O" id="qCl-cd-3Av"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="首页" id="e7L-Pr-Mua">
+                    <navigationItem key="navigationItem" id="e7L-Pr-Mua">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="1vE-uK-h8f">
+                            <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.3411764706" green="0.58823529409999997" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <segments>
+                                <segment title="国内"/>
+                                <segment title="北美"/>
+                                <segment title="香港"/>
+                            </segments>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="selectFilmInfoSource:" destination="9Ej-Fc-03O" eventType="valueChanged" id="kul-kt-QzJ"/>
+                            </connections>
+                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="search" id="QPy-8W-ht1">
                             <connections>
                                 <segue destination="nDq-B5-lYt" kind="show" id="GqW-jB-mQG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imagesPageControl" destination="kXh-hN-KDf" id="8fb-3x-wdM"/>
+                        <outlet property="loadingIndicator" destination="XQ9-t0-XEG" id="tiu-Nh-IsF"/>
+                        <outlet property="sementedControl" destination="1vE-uK-h8f" id="Wz1-qA-ZDR"/>
+                        <outlet property="topScrollView" destination="MX3-hl-X4v" id="O0p-9l-5At"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiX-Yl-59L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -360,6 +448,7 @@
                                                 <constraint firstItem="Ny0-2r-bj9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="YUf-Y3-twL" secondAttribute="trailing" constant="157.5" id="Hmu-yV-BrM">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                                 </constraint>
+                                                <constraint firstItem="04L-wT-9yo" firstAttribute="top" secondItem="vpI-ES-IAZ" secondAttribute="top" constant="10" id="JlN-GR-UK6"/>
                                                 <constraint firstItem="r03-9H-Pc6" firstAttribute="bottom" secondItem="04L-wT-9yo" secondAttribute="bottom" id="RDZ-VH-efT"/>
                                                 <constraint firstItem="35e-pj-0Do" firstAttribute="leading" secondItem="ZvQ-Ss-Lyx" secondAttribute="leading" id="SIZ-d4-tl1"/>
                                                 <constraint firstItem="ZvQ-Ss-Lyx" firstAttribute="top" secondItem="YUf-Y3-twL" secondAttribute="bottom" constant="8" id="Upd-LL-xWI"/>
@@ -368,6 +457,7 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="35e-pj-0Do" secondAttribute="trailing" constant="8" id="dqK-DD-Rb2"/>
                                                 <constraint firstItem="r03-9H-Pc6" firstAttribute="top" secondItem="A49-G7-nTX" secondAttribute="bottom" constant="20" id="i6a-nR-2wJ"/>
                                                 <constraint firstItem="ZvQ-Ss-Lyx" firstAttribute="leading" secondItem="YUf-Y3-twL" secondAttribute="leading" id="jda-u2-4Kh"/>
+                                                <constraint firstAttribute="bottom" secondItem="04L-wT-9yo" secondAttribute="bottom" constant="9.5" id="jeq-3Q-YDf"/>
                                                 <constraint firstItem="ZvQ-Ss-Lyx" firstAttribute="leading" secondItem="DLZ-qu-B82" secondAttribute="trailing" constant="8" symbolic="YES" id="kq6-Z7-MvS">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                                 </constraint>
@@ -414,7 +504,9 @@
                                                     <exclude reference="RDZ-VH-efT"/>
                                                     <exclude reference="i6a-nR-2wJ"/>
                                                     <exclude reference="GdZ-h5-ZIU"/>
+                                                    <exclude reference="JlN-GR-UK6"/>
                                                     <exclude reference="Zxp-xg-1sg"/>
+                                                    <exclude reference="jeq-3Q-YDf"/>
                                                     <exclude reference="9Rv-Sv-Llg"/>
                                                     <exclude reference="Upd-LL-xWI"/>
                                                     <exclude reference="jda-u2-4Kh"/>
@@ -458,8 +550,10 @@
                                                     <include reference="GPZ-d8-WMX"/>
                                                     <include reference="RDZ-VH-efT"/>
                                                     <exclude reference="i6a-nR-2wJ"/>
-                                                    <include reference="GdZ-h5-ZIU"/>
+                                                    <exclude reference="GdZ-h5-ZIU"/>
+                                                    <include reference="JlN-GR-UK6"/>
                                                     <include reference="Zxp-xg-1sg"/>
+                                                    <include reference="jeq-3Q-YDf"/>
                                                     <include reference="9Rv-Sv-Llg"/>
                                                     <exclude reference="Upd-LL-xWI"/>
                                                     <exclude reference="jda-u2-4Kh"/>
@@ -482,11 +576,11 @@
                             </tableViewSection>
                             <tableViewSection id="hVR-Eu-tOG">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="441" id="dny-EE-4ob" customClass="OTTFilmDetailInfoTableViewBottomCell">
-                                        <rect key="frame" x="0.0" y="305" width="600" height="441"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="126" id="dny-EE-4ob" customClass="OTTFilmDetailInfoTableViewBottomCell">
+                                        <rect key="frame" x="0.0" y="305" width="600" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dny-EE-4ob" id="QI3-es-bV9">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="440.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="125.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IntroIntroIntroIntroIntroIntroIntroIntroIntroIntroIntroIntroIntroIntroIntroIntro" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IjH-Q2-5rJ">
@@ -498,7 +592,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="IjH-Q2-5rJ" firstAttribute="leading" secondItem="QI3-es-bV9" secondAttribute="leading" constant="8" id="Vji-eK-7Jk"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IjH-Q2-5rJ" secondAttribute="bottom" constant="396.5" id="Vzf-Jc-b4M">
+                                                <constraint firstAttribute="bottom" secondItem="IjH-Q2-5rJ" secondAttribute="bottom" constant="396.5" id="Vzf-Jc-b4M">
                                                     <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                                 </constraint>
                                                 <constraint firstItem="IjH-Q2-5rJ" firstAttribute="top" secondItem="QI3-es-bV9" secondAttribute="top" constant="8" id="yae-3K-MWy"/>
@@ -614,11 +708,11 @@
             </objects>
             <point key="canvasLocation" x="2761.5" y="-636"/>
         </scene>
-        <!--Home-->
+        <!--首页-->
         <scene sceneID="7fr-gb-idu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wB3-ij-30D" customClass="OTTCustomNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="OTT_Home" id="3S6-SX-mEO"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="OTTHome" id="3S6-SX-mEO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a8A-eR-NM9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -635,7 +729,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="OTT_Home" width="30" height="30"/>
+        <image name="OTTHome" width="38" height="47"/>
         <image name="empty_heart" width="46" height="43"/>
         <image name="red_heart" width="46" height="43"/>
     </resources>
