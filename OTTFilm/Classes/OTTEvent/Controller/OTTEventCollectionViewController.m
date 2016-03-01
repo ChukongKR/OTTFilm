@@ -28,8 +28,6 @@ static NSString * const reuseIdentifier = @"EventCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.collectionView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
     [self loadData];
 }
 

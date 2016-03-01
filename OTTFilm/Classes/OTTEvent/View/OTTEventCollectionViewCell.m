@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *filmImageView;
 @property (weak, nonatomic) IBOutlet UILabel *categoryTitle;
 @property (weak, nonatomic) IBOutlet UILabel *originalTitle;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 
 @property (strong, nonatomic) OTTFilmInfo *filmInfo;
 @end
@@ -29,17 +30,23 @@
     _filmInfo = filmInfo;
     
     self.filmImageView.image = nil;
-    if ([OTTDataTool cachedImageWithURL:filmInfo.images[@"large"]]) {
-        self.filmImageView.image = [OTTDataTool cachedImageWithURL:filmInfo.images[@"large"]];
-    }
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [OTTDataTool cacheImage:filmInfo.images[@"large"]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.filmImageView.image = [OTTDataTool cachedImageWithURL:filmInfo.images[@"large"]];
-        });
-    });
     self.categoryTitle.text = _filmInfo.title;
     self.originalTitle.text = _filmInfo.original_title;
+    if ([OTTDataTool cachedImageWithURL:filmInfo.images[@"large"]]) {
+        [self setFilmImage:[OTTDataTool cachedImageWithURL:filmInfo.images[@"large"]]];
+    }else {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            [OTTDataTool cacheImage:filmInfo.images[@"large"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self setFilmImage:[OTTDataTool cachedImageWithURL:filmInfo.images[@"large"]]];
+            });
+    });
+    }
+}
+
+- (void)setFilmImage:(UIImage *)image {
+    self.filmImageView.image = image;
+    [self.loadingIndicator stopAnimating];
 }
 
 @end

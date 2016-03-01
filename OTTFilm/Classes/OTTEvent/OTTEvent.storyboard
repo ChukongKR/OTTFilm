@@ -12,10 +12,11 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="pDj-NX-bSm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewLayout key="collectionViewLayout" id="rqS-lg-ycJ" customClass="OTTScalableLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventCell" id="DVh-c8-Kwt" customClass="OTTEventCollectionViewCell">
-                                <rect key="frame" x="0.0" y="0.0" width="200" height="144"/>
+                                <rect key="frame" x="112.5" y="64" width="375" height="600"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
@@ -23,7 +24,7 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-uq-QWi">
                                             <rect key="frame" x="0.0" y="-6" width="200" height="150"/>
-                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmg-JW-yQw">
                                             <rect key="frame" x="0.0" y="-6" width="200" height="150"/>
@@ -54,6 +55,10 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aEr-Aa-Apf">
+                                            <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                            <color key="color" red="0.3411764706" green="0.58823529409999997" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -64,6 +69,7 @@
                                     <constraint firstItem="z5y-uq-QWi" firstAttribute="top" secondItem="9NK-nJ-nos" secondAttribute="bottom" id="3z0-dd-2eW"/>
                                     <constraint firstItem="z5y-uq-QWi" firstAttribute="leading" secondItem="DVh-c8-Kwt" secondAttribute="leading" id="5Cd-aM-rKP"/>
                                     <constraint firstItem="Fmg-JW-yQw" firstAttribute="centerX" secondItem="DVh-c8-Kwt" secondAttribute="centerX" id="5YE-or-WrR"/>
+                                    <constraint firstItem="aEr-Aa-Apf" firstAttribute="centerX" secondItem="DVh-c8-Kwt" secondAttribute="centerX" id="9HX-lg-inf"/>
                                     <constraint firstAttribute="trailing" secondItem="z5y-uq-QWi" secondAttribute="trailing" id="9tL-jQ-Gmi"/>
                                     <constraint firstItem="9NK-nJ-nos" firstAttribute="leading" secondItem="DVh-c8-Kwt" secondAttribute="leading" id="Bzy-VD-wl2"/>
                                     <constraint firstItem="z5y-uq-QWi" firstAttribute="top" secondItem="9NK-nJ-nos" secondAttribute="bottom" id="CuJ-HL-Glg"/>
@@ -79,6 +85,7 @@
                                     <constraint firstItem="z5y-uq-QWi" firstAttribute="centerX" secondItem="DVh-c8-Kwt" secondAttribute="centerX" id="ZMd-Pk-Vg0"/>
                                     <constraint firstItem="z5y-uq-QWi" firstAttribute="leading" secondItem="DVh-c8-Kwt" secondAttribute="leading" id="ZqB-Cj-Noi"/>
                                     <constraint firstItem="z5y-uq-QWi" firstAttribute="leading" secondItem="DVh-c8-Kwt" secondAttribute="leading" id="bTO-bq-avN"/>
+                                    <constraint firstItem="aEr-Aa-Apf" firstAttribute="centerY" secondItem="z5y-uq-QWi" secondAttribute="centerY" id="cqh-lN-pMQ"/>
                                     <constraint firstAttribute="trailing" secondItem="z5y-uq-QWi" secondAttribute="trailing" id="dpy-TC-6er"/>
                                     <constraint firstAttribute="bottom" secondItem="z5y-uq-QWi" secondAttribute="bottom" id="vpR-v7-CiV"/>
                                 </constraints>
@@ -93,6 +100,7 @@
                                         <exclude reference="z5y-uq-QWi"/>
                                         <exclude reference="Fmg-JW-yQw"/>
                                         <exclude reference="9NK-nJ-nos"/>
+                                        <exclude reference="aEr-Aa-Apf"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="5YE-or-WrR"/>
@@ -117,6 +125,8 @@
                                         <exclude reference="bTO-bq-avN"/>
                                         <exclude reference="dpy-TC-6er"/>
                                         <exclude reference="vpR-v7-CiV"/>
+                                        <exclude reference="9HX-lg-inf"/>
+                                        <exclude reference="cqh-lN-pMQ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -124,6 +134,7 @@
                                         <include reference="z5y-uq-QWi"/>
                                         <include reference="Fmg-JW-yQw"/>
                                         <include reference="9NK-nJ-nos"/>
+                                        <include reference="aEr-Aa-Apf"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="5YE-or-WrR"/>
@@ -148,11 +159,14 @@
                                         <exclude reference="bTO-bq-avN"/>
                                         <include reference="dpy-TC-6er"/>
                                         <include reference="vpR-v7-CiV"/>
+                                        <include reference="9HX-lg-inf"/>
+                                        <include reference="cqh-lN-pMQ"/>
                                     </mask>
                                 </variation>
                                 <connections>
                                     <outlet property="categoryTitle" destination="Fmg-JW-yQw" id="f16-OV-cYQ"/>
                                     <outlet property="filmImageView" destination="z5y-uq-QWi" id="r7k-xK-ulY"/>
+                                    <outlet property="loadingIndicator" destination="aEr-Aa-Apf" id="AfW-Jm-H6i"/>
                                     <outlet property="originalTitle" destination="9NK-nJ-nos" id="Qvd-uo-kjx"/>
                                     <segue destination="mTb-3J-8xY" kind="show" identifier="showCategoryDetail" id="8Fi-kU-zeX"/>
                                 </connections>
